@@ -33,6 +33,16 @@ reg valid_Q2;		// Output of register y is valid
 // signal for enabling sequential circuit elements
 reg enable;
 
+// FSM control signals 
+reg[2:0] current_state, next_state; 
+
+// FSM States 
+localparam IDLE  = 3'b000,
+           LOAD  = 3'b001,
+		   STORE = 3'b010,
+		   ADD   = 3'b011,
+		   MULT  = 3'b100; 
+
 // Signals for computing the y output
 wire [WIDTHOUT-1:0] m0_out; // A5 * x
 wire [WIDTHOUT-1:0] a0_out; // A5 * x + A4
@@ -47,20 +57,19 @@ wire [WIDTHOUT-1:0] a4_out; // ((((A5 * x + A4) * x + A3) * x + A2) * x + A1) * 
 wire [WIDTHOUT-1:0] y_D;
 
 // compute y value
+// TO-DO: Re-use these three modules using a FSM and MUX to control inputs
 mult16x16 Mult0 (.i_dataa(A5), 		.i_datab(x), 	.o_res(m0_out));
-addr32p16 Addr0 (.i_dataa(m0_out), 	.i_datab(A4), 	.o_res(a0_out));
-
 mult32x16 Mult1 (.i_dataa(a0_out), 	.i_datab(x), 	.o_res(m1_out));
 addr32p16 Addr1 (.i_dataa(m1_out), 	.i_datab(A3), 	.o_res(a1_out));
 
-mult32x16 Mult2 (.i_dataa(a1_out), 	.i_datab(x), 	.o_res(m2_out));
-addr32p16 Addr2 (.i_dataa(m2_out), 	.i_datab(A2), 	.o_res(a2_out));
+// mult32x16 Mult2 (.i_dataa(a1_out), 	.i_datab(x), 	.o_res(m2_out));
+// addr32p16 Addr2 (.i_dataa(m2_out), 	.i_datab(A2), 	.o_res(a2_out));
 
-mult32x16 Mult3 (.i_dataa(a2_out), 	.i_datab(x), 	.o_res(m3_out));
-addr32p16 Addr3 (.i_dataa(m3_out), 	.i_datab(A1), 	.o_res(a3_out));
+// mult32x16 Mult3 (.i_dataa(a2_out), 	.i_datab(x), 	.o_res(m3_out));
+// addr32p16 Addr3 (.i_dataa(m3_out), 	.i_datab(A1), 	.o_res(a3_out));
 
-mult32x16 Mult4 (.i_dataa(a3_out), 	.i_datab(x), 	.o_res(m4_out));
-addr32p16 Addr4 (.i_dataa(m4_out), 	.i_datab(A0), 	.o_res(a4_out));
+// mult32x16 Mult4 (.i_dataa(a3_out), 	.i_datab(x), 	.o_res(m4_out));
+// addr32p16 Addr4 (.i_dataa(m4_out), 	.i_datab(A0), 	.o_res(a4_out));
 
 assign y_D = a4_out;
 
@@ -88,6 +97,15 @@ always @ (posedge clk or posedge reset) begin
 		
 		// output computed y value
 		y_Q <= y_D;
+	end
+end
+
+// FSM transition control
+always @(posedge clk or posedge reset) begin
+	if (reset) begin 
+		current_state <= IDLE; 
+	end else begin
+		state         <= next_state; 
 	end
 end
 
