@@ -41,12 +41,16 @@ wire [2:0] sel_cnt;
 
 assign sel_cnt = sel + 1'b1;  //Just increment by 1
 
+//assign sel_cnt = sel + 1'b1;  //Just increment by 1
 always @ (posedge clk)   
 begin
 	if(!reset)
  		sel <= 3'b0;
- 	else
- 		sel <= sel_cnt;
+ 	else 
+		if(sel == 3'b101)
+			sel <= 3'b0;
+		else
+ 			sel <= sel + 1'b1;
 end
 
 // Signals for computing the y output
