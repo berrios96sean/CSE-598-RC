@@ -29,18 +29,31 @@ reg [WIDTHIN-1:0] x;	// Register to hold input X
 reg [WIDTHOUT-1:0] y_Q;	// Register to hold output Y
 reg valid_Q1;		// Output of register x is valid
 reg valid_Q2;		// Output of register y is valid
+reg valid_Q3; 
+reg valid_Q4; 
+reg valid_Q5; 
+reg valid_Q6; 
+reg valid_Q7; 
+reg valid_Q8; 
+
+reg [15:0] x_r1;
+reg [15:0] x_r2;
+reg [15:0] x_r3;
+reg [15:0] x_r4;
 
 // signal for enabling sequential circuit elements
 reg enable;
 
-reg [WIDTHIN-1:0] mult0_in;
-reg mult0_out;
-reg mult1_in; 
-reg mult1_out; 
-reg add_in; 
-reg add_out; 
+reg [15:0] mult0_ina;
+reg [15:0] mult0_inb;
+reg [31:0] mult0_out;
+reg [31:0] mult1_in; 
+reg [31:0] mult1_out; 
+reg [31:0] add_in; 
+reg [31:0] add_out; 
 
 // Signals for computing the y output
+wire [WIDTHOUT-1:0] m0_out_t; // A5 * x
 wire [WIDTHOUT-1:0] m0_out; // A5 * x
 wire [WIDTHOUT-1:0] a0_out; // A5 * x + A4
 wire [WIDTHOUT-1:0] m1_out; // (A5 * x + A4) * x
@@ -53,11 +66,14 @@ wire [WIDTHOUT-1:0] m4_out; // ((((A5 * x + A4) * x + A3) * x + A2) * x + A1) * 
 wire [WIDTHOUT-1:0] a4_out; // ((((A5 * x + A4) * x + A3) * x + A2) * x + A1) * x + A0
 wire [WIDTHOUT-1:0] y_D;
 
+reg [31:0] m0_out_r1; 
+
 // Counter to control state transitions 
 integer counter; 
 
 // FSM states 
 reg[3:0] current_state, next_state; 
+reg done; 
 
 // FSM States 
 localparam IDLE  = 3'b000,
@@ -67,19 +83,21 @@ localparam IDLE  = 3'b000,
            MULT  = 3'b100;
 
 // Individual shared componenet instantiations
-mult16x16 Mult0 (.i_dataa(A5), 		.i_datab(x), 	.o_res(m0_out)); // Used for first calculation.
-addr32p16 Addr0 (.i_dataa(m0_out), 	.i_datab(A4), 	.o_res(a0_out));
-mult32x16 Mult1 (.i_dataa(a0_out), 	.i_datab(x), 	.o_res(m1_out));
+mult16x16 Mult01 (.i_dataa(mult0_ina), 		.i_datab(mult0_inb), 	.o_res(m0_out_t)); // Used for first calculation.
+
+mult16x16 Mult0 (.i_dataa(mult0_ina), 		.i_datab(x_r1), 	.o_res(m0_out)); // Used for first calculation.
+addr32p16 Addr0 (.i_dataa(m0_out_r1), 	.i_datab(A4), 	.o_res(a0_out));
+mult32x16 Mult1 (.i_dataa(a0_out), 	.i_datab(x_r2), 	.o_res(m1_out));
 
 addr32p16 Addr1 (.i_dataa(m1_out), 	.i_datab(A3), 	.o_res(a1_out));
 
-mult32x16 Mult2 (.i_dataa(a1_out), 	.i_datab(x), 	.o_res(m2_out));
+mult32x16 Mult2 (.i_dataa(a1_out), 	.i_datab(x_r2), 	.o_res(m2_out));
 addr32p16 Addr2 (.i_dataa(m2_out), 	.i_datab(A2), 	.o_res(a2_out));
 
-mult32x16 Mult3 (.i_dataa(a2_out), 	.i_datab(x), 	.o_res(m3_out));
+mult32x16 Mult3 (.i_dataa(a2_out), 	.i_datab(x_r2), 	.o_res(m3_out));
 addr32p16 Addr3 (.i_dataa(m3_out), 	.i_datab(A1), 	.o_res(a3_out));
 
-mult32x16 Mult4 (.i_dataa(a3_out), 	.i_datab(x), 	.o_res(m4_out));
+mult32x16 Mult4 (.i_dataa(a3_out), 	.i_datab(x_r2), 	.o_res(m4_out));
 addr32p16 Addr4 (.i_dataa(m4_out), 	.i_datab(A0), 	.o_res(a4_out));
 
 assign y_D = a4_out;
@@ -95,16 +113,40 @@ always @ (posedge clk or posedge reset) begin
     if (reset) begin
         valid_Q1 <= 1'b0;
         valid_Q2 <= 1'b0;
+        valid_Q3 <= 1'b0;
+        valid_Q4 <= 1'b0;
+        valid_Q5 <= 1'b0;
+        valid_Q6 <= 1'b0;
+        valid_Q7 <= 1'b0;
+        valid_Q8 <= 1'b0;
+
+        m0_out_r1 <= 0;
         
         x <= 0;
+        x_r1 <= 0;
+        x_r2 <= 0;
+        x_r3 <= 0;
+        x_r4 <= 0;
         y_Q <= 0;
     end else if (enable) begin
         // propagate the valid value
         valid_Q1 <= i_valid;
         valid_Q2 <= valid_Q1;
+        valid_Q3 <= valid_Q2;
+        valid_Q4 <= valid_Q3;
+        valid_Q5 <= valid_Q4;
+        valid_Q6 <= valid_Q5;
+        valid_Q7 <= valid_Q6;
+        valid_Q8 <= valid_Q7;
+
+        m0_out_r1 <= m0_out; 
         
         // read in new x value
         x <= i_x;
+        x_r1 <= x; 
+        x_r2 <= x_r1;
+        x_r3 <= x_r2; 
+        x_r4 <= x_r3;
         
         // output computed y value
         y_Q <= y_D;
@@ -132,14 +174,26 @@ end
 // FSM TO-DO: define state transitions later. 
 always @ (current_state) begin 
     if (reset) begin
-
+        done <= 0;
     end else begin 
         case(current_state) 
-            IDLE: next_state <= LOAD;
+            IDLE: if (i_ready) begin 
+                    next_state <= MULT; 
+                  end else begin
+                    next_state <= IDLE;
+                  end
             LOAD: next_state <= STORE;
             STORE: next_state <= ADD; 
             ADD:  next_state <= MULT; 
-            MULT: next_state <= IDLE;
+            MULT: if (counter < 4) begin
+                    mult0_ina <= A5[15:0]; 
+                    //mult0_inb <= x; 
+                    next_state <= ADD;
+                  end else if (done == 0)begin
+                    next_state <= MULT;
+                  end else begin 
+                    next_state <= IDLE; 
+                  end
             default: next_state <= IDLE;  
         endcase
     end
@@ -153,7 +207,7 @@ assign o_ready = i_ready;
 //	the receiver is ready. If the receiver isn't ready, the computed output
 //	will still remain on the register outputs and the circuit will resume
 //  normal operation with the receiver is ready again (i_ready is high)*/
-assign o_valid = valid_Q2 & i_ready;	
+assign o_valid = valid_Q4 & i_ready;	
 
 endmodule
 
