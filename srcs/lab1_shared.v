@@ -33,6 +33,13 @@ reg valid_Q2;		// Output of register y is valid
 // signal for enabling sequential circuit elements
 reg enable;
 
+reg [WIDTHIN-1:0] mult0_in;
+reg mult0_out;
+reg mult1_in; 
+reg mult1_out; 
+reg add_in; 
+reg add_out; 
+
 // Signals for computing the y output
 wire [WIDTHOUT-1:0] m0_out; // A5 * x
 wire [WIDTHOUT-1:0] a0_out; // A5 * x + A4
@@ -46,6 +53,9 @@ wire [WIDTHOUT-1:0] m4_out; // ((((A5 * x + A4) * x + A3) * x + A2) * x + A1) * 
 wire [WIDTHOUT-1:0] a4_out; // ((((A5 * x + A4) * x + A3) * x + A2) * x + A1) * x + A0
 wire [WIDTHOUT-1:0] y_D;
 
+// Counter to control state transitions 
+integer counter; 
+
 // FSM states 
 reg[3:0] current_state, next_state; 
 
@@ -56,21 +66,21 @@ localparam IDLE  = 3'b000,
            ADD   = 3'b011,
            MULT  = 3'b100;
 
-// compute y value
-mult16x16 Mult0 (.i_dataa(A5), 		.i_datab(x), 	.o_res(m0_out));
+// Individual shared componenet instantiations
+mult16x16 Mult0 (.i_dataa(A5), 		.i_datab(x), 	.o_res(m0_out)); // Used for first calculation.
 addr32p16 Addr0 (.i_dataa(m0_out), 	.i_datab(A4), 	.o_res(a0_out));
 mult32x16 Mult1 (.i_dataa(a0_out), 	.i_datab(x), 	.o_res(m1_out));
 
-// addr32p16 Addr1 (.i_dataa(m1_out), 	.i_datab(A3), 	.o_res(a1_out));
+addr32p16 Addr1 (.i_dataa(m1_out), 	.i_datab(A3), 	.o_res(a1_out));
 
-// mult32x16 Mult2 (.i_dataa(a1_out), 	.i_datab(x), 	.o_res(m2_out));
-// addr32p16 Addr2 (.i_dataa(m2_out), 	.i_datab(A2), 	.o_res(a2_out));
+mult32x16 Mult2 (.i_dataa(a1_out), 	.i_datab(x), 	.o_res(m2_out));
+addr32p16 Addr2 (.i_dataa(m2_out), 	.i_datab(A2), 	.o_res(a2_out));
 
-// mult32x16 Mult3 (.i_dataa(a2_out), 	.i_datab(x), 	.o_res(m3_out));
-// addr32p16 Addr3 (.i_dataa(m3_out), 	.i_datab(A1), 	.o_res(a3_out));
+mult32x16 Mult3 (.i_dataa(a2_out), 	.i_datab(x), 	.o_res(m3_out));
+addr32p16 Addr3 (.i_dataa(m3_out), 	.i_datab(A1), 	.o_res(a3_out));
 
-// mult32x16 Mult4 (.i_dataa(a3_out), 	.i_datab(x), 	.o_res(m4_out));
-// addr32p16 Addr4 (.i_dataa(m4_out), 	.i_datab(A0), 	.o_res(a4_out));
+mult32x16 Mult4 (.i_dataa(a3_out), 	.i_datab(x), 	.o_res(m4_out));
+addr32p16 Addr4 (.i_dataa(m4_out), 	.i_datab(A0), 	.o_res(a4_out));
 
 assign y_D = a4_out;
 
@@ -100,6 +110,40 @@ always @ (posedge clk or posedge reset) begin
         y_Q <= y_D;
     end
 end
+
+// Increment counter continuously 
+always @ (posedge clk or posedge reset) begin 
+    if (reset) begin 
+        counter <= 0;
+    end else if (clk) begin 
+        counter <= counter + 1; 
+    end 
+end 
+
+// FSM transition control
+always @(posedge clk or posedge reset) begin
+	if (reset) begin 
+		current_state <= IDLE; 
+	end else begin
+		current_state <= next_state; 
+	end
+end
+
+// FSM TO-DO: define state transitions later. 
+always @ (current_state) begin 
+    if (reset) begin
+
+    end else begin 
+        case(current_state) 
+            IDLE: next_state <= LOAD;
+            LOAD: next_state <= STORE;
+            STORE: next_state <= ADD; 
+            ADD:  next_state <= MULT; 
+            MULT: next_state <= IDLE;
+            default: next_state <= IDLE;  
+        endcase
+    end
+end 
 
 // assign outputs
 assign o_y = y_Q;
