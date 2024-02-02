@@ -28,77 +28,14 @@ module lab1 #
 //32 bits are of interest, and keep them.
 reg [WIDTHIN-1:0] x;	// Register to hold input X
 reg [WIDTHOUT-1:0] y_Q;	// Register to hold output Y
-reg valid_Q1;		// Output of register x is valid
-reg valid_Q2;		// Output of register y is valid
-reg valid_Q3, valid_Q4, valid_Q5, valid_Q6, valid_Q7 ;
-reg valid_Q8, valid_Q9, valid_Q10, valid_Q11, valid_Q12 ;
 
 reg [31:0] t_output; 
-
-// Input to mult
-reg [WIDTHOUT-1:0] P1;
-reg [31:0] temp_p1; 
 
 // Register array to hold Input
 reg [15:0] in_array [0:100];
 reg [31:0] out_array [0:100];
 integer out_index; 
 integer index; 
-
-// testpoints 
-reg [31:0] t0; 
-reg [31:0] t1; 
-reg [31:0] t2; 
-reg [31:0] t3; 
-reg [31:0] t4; 
-reg [31:0] t5; 
-reg [31:0] t6; 
-reg [31:0] t7; 
-reg [31:0] t8; 
-reg [31:0] t9; 
-reg [31:0] t10; 
-reg [31:0] t11; 
-reg [31:0] t12; 
-reg [31:0] t13; 
-reg [31:0] t14; 
-reg [31:0] t15; 
-reg [31:0] t16; 
-reg [31:0] t17; 
-reg [31:0] t18; 
-reg [31:0] t19; 
-reg [31:0] t20; 
-reg [31:0] t21; 
-reg [31:0] t22; 
-reg [31:0] t23; 
-reg [31:0] t24; 
-reg [31:0] t25; 
-reg [31:0] t26; 
-reg [31:0] t27; 
-reg [31:0] t28; 
-reg [31:0] t29; 
-reg [31:0] t30; 
-reg [31:0] t31; 
-reg [31:0] t32; 
-reg [31:0] t33; 
-reg [31:0] t34; 
-reg [31:0] t35; 
-reg [31:0] t36; 
-reg [31:0] t37; 
-reg [31:0] t38; 
-reg [31:0] t39; 
-reg [31:0] t40;
-reg [31:0] t41; 
-reg [31:0] t42; 
-reg [31:0] t43; 
-reg [31:0] t44; 
-reg [31:0] t45; 
-reg [31:0] t46; 
-reg [31:0] t47; 
-reg [31:0] t48; 
-reg [31:0] t49; 
-reg [31:0] t50;  
-
-
 
 integer counter; 
 integer t_counter;
@@ -295,39 +232,6 @@ begin
 end
 
 // -----------------------------------------------------------------------------------------
-// Select next input b for adder 
-// -----------------------------------------------------------------------------------------
-
-
-// -----------------------------------------------------------------------------------------
-// Control Multiplier Inputs 
-// -----------------------------------------------------------------------------------------
-// always @(posedge clk or posedge reset) 
-// begin
-// 	if(reset) begin
-// 		P1 <= 0;
-//         temp_p1 <= 0;
-//         mux_sel2 <= 0; // selects which input to sent to multiplier
-//         index2 <= 0;
-//     end else begin
-//         if (counter > 2 && counter < 4) begin
-//             P1 <= A5[15:0];
-//             out_sel <= 0;
-//             temp_p1 <= a_out; 
-//             mux_sel2 <= 0;
-//         end else if (counter > 3)begin 
-//             P1 <= a_out;
-//             out_sel <= 1;
-//             mux_sel2 <= 1;
-//         end
-
-//         if (counter < 7) begin 
-//             mult0_inb <= in_array[0];
-//         end
-//     end
-// end 
-
-// -----------------------------------------------------------------------------------------
 // Hold input inside register array 
 // -----------------------------------------------------------------------------------------
 always @ (posedge clk or posedge reset)
@@ -356,24 +260,6 @@ begin
     end 
 end
 
-// -----------------------------------------------------------------------------------------
-// Control Mux selections for input b of adder 
-// -----------------------------------------------------------------------------------------
-// always @ (posedge clk or posedge reset) 
-// begin 
-//     if (reset) begin 
-
-//     end else begin 
-//         if (counter < 2) begin 
-//             mux_sel <= 3'b100;
-//         end else if (counter < 3) begin
-//             mux_sel <= 3'b011; 
-//         end
-//     end
-// end
-
-
-
 // Combinational logic
 always @* begin
 	// signal for enable
@@ -384,77 +270,13 @@ end
 // Pipeline stage 
 // -----------------------------------------------------------------------------------------
 always @ (posedge clk or posedge reset) begin
-	if (reset) begin
-		valid_Q1 <= 1'b0;
-		valid_Q2 <= 1'b0;
-		
+	if (reset) begin		
 		x <= 0;
 		y_Q <= 0;
 	end else if (enable) begin
-		// propagate the valid value
-		valid_Q1 <= i_valid;
-		valid_Q2 <= valid_Q1;
-        valid_Q3 <= valid_Q2;
-        valid_Q4 <= valid_Q3;
-        valid_Q5 <= valid_Q4;
-        valid_Q6 <= valid_Q5;
-        valid_Q7 <= valid_Q6;
 
 
         a_out_r1 <= a_out; 
-
-        // test values 
-        t0   <= out_array[0];
-        t1   <= out_array[1];
-        t2   <= out_array[2];
-        t3   <= out_array[3];
-        t4   <= out_array[4];
-        t5   <= out_array[5];
-        t6   <= out_array[6];
-        t7   <= out_array[7];
-        t8   <= out_array[8];
-        t9   <= out_array[9];
-        t10  <= out_array[10];
-        t11  <= out_array[11];
-        t12  <= out_array[12];
-        t13  <= out_array[13];
-        t14  <= out_array[14];
-        t15  <= out_array[15];
-        t16  <= out_array[16];
-        t17  <= out_array[17];
-        t18  <= out_array[18];
-        t19  <= out_array[19];
-        t20  <= out_array[20];
-        t21  <= out_array[21];
-        t22  <= out_array[22];
-        t23  <= out_array[23];
-        t24  <= out_array[24];
-        t25  <= out_array[25];
-        t26  <= out_array[26];
-        t27  <= out_array[27];
-        t28  <= out_array[28];
-        t29  <= out_array[29];
-        t30  <= out_array[30];
-        t31  <= out_array[31];
-        t32  <= out_array[32];
-        t33  <= out_array[33];
-        t34  <= out_array[34];
-        t35  <= out_array[35];
-        t36  <= out_array[36];
-        t37  <= out_array[37];
-        t38  <= out_array[38];
-        t39  <= out_array[39];
-        t40  <= out_array[40];
-        t41  <= out_array[41];
-        t42  <= out_array[42];
-        t43  <= out_array[43];
-        t44  <= out_array[44];
-        t45  <= out_array[45];
-        t46  <= out_array[46];
-        t47  <= out_array[47];
-        t48  <= out_array[48];
-        t49  <= out_array[49];
-        t50  <= out_array[50];
 
 		// read in new x value
 		x <= i_x;
@@ -583,29 +405,3 @@ end
 
 
 endmodule
-
-// module input_mux (
-//     input  [15:0] a, // a0 
-//     input  [15:0] b, // a1 
-//     input  [15:0] c, // a2 
-//     input  [15:0] d, // a3 
-//     input  [15:0] e, // a4 
-//     input  [15:0] f, // a5
-//     input  [2:0]  sel,
-//     output reg [15:0] out
-// );
-
-// always @ (a or b or c or d or e or f or sel) begin 
-//     case (sel) 
-//         3'b000: out <= a; 
-//         3'b001: out <= b; 
-//         3'b010: out <= c; 
-//         3'b011: out <= d; 
-//         3'b100: out <= e; 
-//         3'b101: out <= f; 
-//         3'b110: out <= g;
-//         3'b111: out <= h;
-//     endcase
-// end
-
-// endmodule
