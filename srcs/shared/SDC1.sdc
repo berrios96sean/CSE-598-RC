@@ -1,1 +1,1 @@
-create_clock -period 1 -name clk clk
+create_clock -period 20 -name clk clk
