@@ -1,5 +1,5 @@
 // TO-DO: need to clean up code and erase unused signals -- preliminary design for pipeline tests pass
-module lab1_pipe #
+module lab1 #
 (
 	parameter WIDTHIN = 16,		// Input format is Q2.14 (2 integer bits + 14 fractional bits = 16 bits)
 	parameter WIDTHOUT = 32,	// Intermediate/Output format is Q7.25 (7 integer bits + 25 fractional bits = 32 bits)
