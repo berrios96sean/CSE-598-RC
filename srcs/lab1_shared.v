@@ -75,7 +75,12 @@ reg t_valid;
 
 reg [2:0] current_state, next_state; 
 
-// FSM transition control
+localparam IDLE   = 2'b00,
+           ADD    = 2'b01,
+           MULT1  = 2'b10,
+           MULT2  = 2'b11;
+
+           // FSM transition control
 always @(posedge clk or posedge reset) begin
 	if (reset) begin 
         next_state <= IDLE; 
@@ -83,11 +88,6 @@ always @(posedge clk or posedge reset) begin
 		current_state <= next_state; 
 	end
 end
-
-localparam IDLE   = 2'b00,
-           ADD    = 2'b01,
-           MULT1  = 2'b10,
-           MULT2  = 2'b11;
 
 always @ (current_state, counter)
 begin 
