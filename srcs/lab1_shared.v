@@ -67,6 +67,9 @@ reg [31:0] mult0_ina;
 reg [31:0] add_ina;
 reg [15:0] add_inb;
 
+reg i_valid_r1; 
+reg i_valid_r2; 
+
 reg t_valid; 
 
 // -----------------------------------------------------------------------------------------
@@ -80,7 +83,7 @@ localparam IDLE   = 2'b00,
            MULT1  = 2'b10,
            MULT2  = 2'b11;
 
-           // FSM transition control
+// FSM transition control
 always @(posedge clk or posedge reset) begin
 	if (reset) begin 
 
@@ -139,6 +142,10 @@ begin
     end
 end
 
+
+// -----------------------------------------------------------------------------------------
+// Block used to fill output array registers 
+// -----------------------------------------------------------------------------------------
 always @(posedge clk or posedge reset) begin
     if (reset) begin
         // Reset logic here
@@ -153,6 +160,8 @@ always @(posedge clk or posedge reset) begin
             end
             
             // Check if counter is at the start of a new range for updating out_array
+            // Output array registers are filled with valid output only. 
+            // These are used to control the output of the data. 
             if (counter > 4 && counter % 10 == 4) begin
                 out_index <= out_index + 1;
                 out_array[out_index] <= a_out;
@@ -161,20 +170,24 @@ always @(posedge clk or posedge reset) begin
     end
 end
 
+
+// -----------------------------------------------------------------------------------------
+// Output Block
+// -----------------------------------------------------------------------------------------
 always @ (posedge clk or posedge reset) begin
     if (reset) begin 
         t_counter <= 0; 
         t_valid <= 0;
     end else begin 
 
-        if (counter > 495 && counter < 503) begin // finished transfer data from clock cycle 86 +  
-            if (counter == 496) begin 
-                t_valid <= 1; 
-            end
+        // set valid output only after all of the output array registers have been filled
+        // with their calculations
+        if (counter > 495 && counter < 503) begin 
+            t_valid <= 1; 
             t_output <= out_array[t_counter];
             t_counter <= t_counter + 1; 
         end else if (counter > 508 && counter < 552) begin 
-            t_output <= out_array[t_counter]; // 130
+            t_output <= out_array[t_counter]; 
             t_counter <= t_counter + 1; 
         end
 
@@ -240,26 +253,16 @@ end
 always @ (posedge clk or posedge reset)
 begin
     if (reset) begin 
-        in_array[0] <= 0;
-        in_array[1] <= 0;
-        in_array[2] <= 0;
-        in_array[3] <= 0;
-        in_array[4] <= 0;
-        in_array[5] <= 0;
-        in_array[6] <= 0;
-        in_array[7] <= 0; 
         index       <= 0;
     end else begin 
-        temp <= in_array[25]; // test register array input
-        if ((counter > 1) && (counter < 27)) begin 
+        temp <= in_array[0]; // test register array input
+
+        // Fill register array with valid input data 
+        if (i_valid_r1) begin 
             in_array[index] <= x[15:0];
             index <= index + 1; 
         end
 
-        if ((counter > 29) && (counter < 55)) begin 
-            in_array[index] <= x[15:0];
-            index <= index + 1; 
-        end
     end 
 end
 
@@ -278,6 +281,8 @@ always @ (posedge clk or posedge reset) begin
 		y_Q <= 0;
 	end else if (enable) begin
 
+        i_valid_r1 <= i_valid; 
+        i_valid_r2 <= i_valid_r1;
 
         a_out_r1 <= a_out; 
 
