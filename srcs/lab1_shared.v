@@ -83,7 +83,7 @@ localparam IDLE   = 2'b00,
            // FSM transition control
 always @(posedge clk or posedge reset) begin
 	if (reset) begin 
-        next_state <= IDLE; 
+
 	end else begin
 		current_state <= next_state; 
 	end
@@ -92,8 +92,7 @@ end
 always @ (current_state, counter)
 begin 
     if (reset) begin 
-        t_valid <= 0;
-        out_index <= 0; 
+        next_state <= IDLE; 
     end else begin
         case(current_state)
 
@@ -143,6 +142,7 @@ end
 always @(posedge clk or posedge reset) begin
     if (reset) begin
         // Reset logic here
+        out_index <= 0; 
         index2 <= 0; 
     end else begin
         // Check if counter is within the valid range to update index2 and possibly out_array
@@ -164,10 +164,13 @@ end
 always @ (posedge clk or posedge reset) begin
     if (reset) begin 
         t_counter <= 0; 
+        t_valid <= 0;
     end else begin 
 
         if (counter > 495 && counter < 503) begin // finished transfer data from clock cycle 86 +  
-            t_valid <= 1; 
+            if (counter == 496) begin 
+                t_valid <= 1; 
+            end
             t_output <= out_array[t_counter];
             t_counter <= t_counter + 1; 
         end else if (counter > 508 && counter < 552) begin 
