@@ -1,9 +1,0 @@
-
-State Machine - Summary
-
-State Machine - current_state
-Name current_state.MULT2 current_state.ADD current_state.MULT1 current_state.IDLE 
-current_state.IDLE 0 0 0 0 
-current_state.MULT1 0 0 1 1 
-current_state.ADD 0 1 0 1 
-current_state.MULT2 1 0 0 1 
