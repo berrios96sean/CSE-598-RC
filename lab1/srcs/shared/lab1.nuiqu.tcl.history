@@ -1,0 +1,22 @@
+# TCL commands history
+# Sat Feb 3 15:44:15 2024
+dni::selection -action set -object {net::lab1::counter[28]}
+dni::selection -action set -object {net::lab1::n2650}
+dni::selection -action set -object {net_bus::lab1::x}
+dni::selection -action set -object {net::lab1::n3058}
+dni::selection -action set -object {net_bus::lab1::in_array}
+dni::selection -action set -object {instance_bus::lab1::i1642}
+dni::selection -action set -object {instance_bus::lab1::i4100}
+dni::selection -action set -object {instance_bus::lab1::i1659}
+dni::selection -action set -object {net::lab1::n2480}
+dni::selection -action set -object {net_bus::lab1::n4939}
+dni::selection -action set -object {instance_bus::lab1::i4084}
+dni::selection -action set -object {inst_port::lab1::reduce_nor_4|a[2]}
+dni::selection -action set -object {port_bus::lab1::Mult0|o_res}
+dni::selection -action set -object {instance::lab1::Mult0}
+dni::selection -action set -object {instance::lab1::current_state.MULT1}
+dni::selection -action set -object {instance::lab1::current_state.ADD}
+dni::selection -action set -object {port_bus::lab1::mux0|a}
+dni::selection -action set -object {port_bus::lab1::Addr0|o_res}
+dni::selection -action set -object {instance::lab1::Addr0}
+dni::selection -action set -object {instance::lab1::add_2}

@@ -1,0 +1,6 @@
+{ "Info" "IDMS_INIT_MSG_DB" "" "Initialized Quartus Message Database" {  } {  } 0 21958 "Initialized Quartus Message Database" 0 0 "Design Software" 0 -1 0 ""}
+{ "Info" "0" "" "Analyzing source files" {  } {  } 0 0 "Analyzing source files" 0 0 "0" 0 0 1706999461750 ""}
+{ "Info" "0" "" "Elaborating from top-level entity \"lab1\"" {  } {  } 0 0 "Elaborating from top-level entity \"lab1\"" 0 0 "0" 0 0 1706999463439 ""}
+{ "Warning" "WVRFX2_L2_VERI_EXPRESSION_TRUNCATED_TO_FIT" "32 16 lab1.v(159) " "Verilog HDL assignment warning at lab1.v(159): truncated value with size 32 to match size of target (16)" {  } { { "/home/sfberrio/repos/lab1/srcs/pipe/lab1.v" "" { Text "/home/sfberrio/repos/lab1/srcs/pipe/lab1.v" 159 0 0 0 } }  } 3 13469 "Verilog HDL assignment warning at %3!s!: truncated value with size %1!d! to match size of target (%2!d!)" 0 0 "Design Software" 0 -1 1706999463485 ""}
+{ "Info" "0" "" "Found 5 design entities" {  } {  } 0 0 "Found 5 design entities" 0 0 "0" 0 0 1706999463834 ""}
+{ "Info" "0" "" "There are 11 partitions after elaboration." {  } {  } 0 0 "There are 11 partitions after elaboration." 0 0 "0" 0 0 1706999463898 ""}

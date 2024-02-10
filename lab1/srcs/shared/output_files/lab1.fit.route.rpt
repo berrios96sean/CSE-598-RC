@@ -1,0 +1,166 @@
+Fitter Route Stage Report for lab1
+Sun Feb  4 17:02:40 2024
+Quartus Prime Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Delay Chain Summary
+  3. Routing Usage Summary
+  4. Route Messages
+  5. Estimated Delay Added for Hold Timing Summary
+  6. Estimated Delay Added for Hold Timing Details
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Delay Chain Summary                                                                                                                                   ;
++------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; Name ; Pin Type ; Input Delay Chain 0 ; Output Delay Chain ; OE Delay Chain ; IO_12_LANE Input Data Delay Chain ; IO_12_LANE Input Strobe Delay Chain ;
++------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; clk  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
++------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+
+
++------------------------------------------------------------+
+; Routing Usage Summary                                      ;
++------------------------------+-----------------------------+
+; Routing Resource Type        ; Usage                       ;
++------------------------------+-----------------------------+
+; Block interconnects          ; 2,913 / 3,375,986 ( < 1 % ) ;
+; C27 interconnects            ; 0 / 56,741 ( 0 % )          ;
+; C4 interconnects             ; 1,140 / 2,570,048 ( < 1 % ) ;
+; Direct links                 ; 1,062 / 3,375,986 ( < 1 % ) ;
+; Global clocks                ; 2 / 32 ( 6 % )              ;
+; Periphery clocks             ; 0 / 910 ( 0 % )             ;
+; R3 interconnects             ; 528 / 1,214,760 ( < 1 % )   ;
+; R32 interconnects            ; 0 / 99,472 ( 0 % )          ;
+; R32/C27 interconnect drivers ; 0 / 385,136 ( 0 % )         ;
+; R6 interconnects             ; 809 / 2,336,152 ( < 1 % )   ;
+; Regional clock lefts         ; 0 / 16 ( 0 % )              ;
+; Regional clock out bottoms   ; 0 / 16 ( 0 % )              ;
+; Regional clock out tops      ; 0 / 16 ( 0 % )              ;
+; Regional clock rights        ; 0 / 16 ( 0 % )              ;
+; Regional clocks              ; 0 / 16 ( 0 % )              ;
+; Spine buffers                ; 2 / 704 ( < 1 % )           ;
+; Spine clocks                 ; 2 / 1,056 ( < 1 % )         ;
+; Spine feedthroughs           ; 0 / 1,024 ( 0 % )           ;
++------------------------------+-----------------------------+
+
+
++----------------+
+; Route Messages ;
++----------------+
+Info (20032): Parallel compilation is enabled and will use up to 2 processors
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+    Info: Processing started: Sun Feb  4 16:58:36 2024
+    Info: System process ID: 1500101
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off lab1 -c lab1
+Info: The application is running in 'DNI' mode.
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = lab1
+Info: Revision = lab1
+Info (22300): Design uses Placement Effort Multiplier = 1.0.
+Info (170193): Fitter routing operations beginning
+Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
+    Info (170200): Optimizations that may affect the design's timing were skipped
+Info (22793): The Timing Analyzer is analyzing 77 combinational loops as latches. To see the list of latches that were not entered as explicit comb loops in design files, view the "User-Specified and Inferred Latches" table in the Synthesis report.
+Info (11888): Total time spent on timing analysis during Routing is 0.67 seconds.
+Info (16607): Fitter routing operations ending: elapsed time is 00:01:18
+
+
++------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary              ;
++-----------------+----------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
++-----------------+----------------------+-------------------+
+; clk             ; clk                  ; 36.7              ;
+; clk,I/O         ; clk                  ; 3.7               ;
++-----------------+----------------------+-------------------+
+Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
+This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
+
+
++-----------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                         ;
++----------------------------+----------------------+-------------------+
+; Source Register            ; Destination Register ; Delay Added in ns ;
++----------------------------+----------------------+-------------------+
+; out_array_rtl_0_bypass[16] ; t_output[3]          ; 0.203             ;
+; out_array_rtl_0_bypass[43] ; t_output[30]         ; 0.197             ;
+; out_array_rtl_0_bypass[14] ; t_output[1]          ; 0.187             ;
+; out_array_rtl_0_bypass[23] ; t_output[10]         ; 0.184             ;
+; out_array_rtl_0_bypass[34] ; t_output[21]         ; 0.183             ;
+; out_array_rtl_0_bypass[42] ; t_output[29]         ; 0.180             ;
+; out_array_rtl_0_bypass[31] ; t_output[18]         ; 0.176             ;
+; out_array_rtl_0_bypass[26] ; t_output[13]         ; 0.175             ;
+; out_array_rtl_0_bypass[19] ; t_output[6]          ; 0.174             ;
+; out_array_rtl_0_bypass[37] ; t_output[24]         ; 0.172             ;
+; out_array_rtl_0_bypass[29] ; t_output[16]         ; 0.167             ;
+; x[4]                       ; in_array[13][4]      ; 0.153             ;
+; out_array_rtl_0_bypass[41] ; t_output[28]         ; 0.147             ;
+; out_array_rtl_0_bypass[39] ; t_output[26]         ; 0.143             ;
+; out_array_rtl_0_bypass[30] ; t_output[17]         ; 0.140             ;
+; out_array_rtl_0_bypass[38] ; t_output[25]         ; 0.134             ;
+; out_array_rtl_0_bypass[28] ; t_output[15]         ; 0.130             ;
+; out_array_rtl_0_bypass[33] ; t_output[20]         ; 0.130             ;
+; out_array_rtl_0_bypass[27] ; t_output[14]         ; 0.129             ;
+; t_counter[4]               ; t_counter[4]         ; 0.116             ;
+; out_array_rtl_0_bypass[40] ; t_output[27]         ; 0.112             ;
+; out_array_rtl_0_bypass[35] ; t_output[22]         ; 0.108             ;
+; out_array_rtl_0_bypass[36] ; t_output[23]         ; 0.106             ;
+; x[11]                      ; in_array[50][11]     ; 0.100             ;
+; x[6]                       ; in_array[50][6]      ; 0.096             ;
+; x[13]                      ; in_array[46][13]     ; 0.087             ;
+; x[5]                       ; in_array[44][5]      ; 0.087             ;
+; x[10]                      ; in_array[50][10]     ; 0.077             ;
+; x[12]                      ; in_array[50][12]     ; 0.073             ;
+; out_array_rtl_0_bypass[21] ; t_output[8]          ; 0.062             ;
+; out_array_rtl_0_bypass[22] ; t_output[9]          ; 0.056             ;
+; x[9]                       ; in_array[50][9]      ; 0.050             ;
+; out_array_rtl_0_bypass[25] ; t_output[12]         ; 0.046             ;
+; out_array_rtl_0_bypass[44] ; t_output[31]         ; 0.039             ;
+; x[7]                       ; in_array[27][7]      ; 0.039             ;
+; out_array_rtl_0_bypass[32] ; t_output[19]         ; 0.038             ;
+; x[2]                       ; in_array[50][2]      ; 0.035             ;
+; counter[0]                 ; counter[30]          ; 0.035             ;
+; out_index[23]              ; out_index[28]        ; 0.033             ;
+; counter[23]                ; counter[30]          ; 0.033             ;
+; counter[3]                 ; counter[30]          ; 0.033             ;
+; out_array_rtl_0_bypass[20] ; t_output[7]          ; 0.033             ;
+; counter[1]                 ; counter[30]          ; 0.029             ;
+; index[22]                  ; index[22]            ; 0.026             ;
+; index[2]                   ; index[10]            ; 0.026             ;
+; out_index[21]              ; out_index[28]        ; 0.026             ;
+; counter[21]                ; counter[30]          ; 0.025             ;
+; x[0]                       ; in_array[50][0]      ; 0.022             ;
+; x[15]                      ; in_array[35][15]     ; 0.019             ;
+; out_index[29]              ; out_index[31]        ; 0.010             ;
++----------------------------+----------------------+-------------------+
+Note: This table only shows the top 50 path(s) that have the largest delay added for hold.
+
+

@@ -1,0 +1,12 @@
+# TCL commands history
+# Thu Jan 25 21:21:14 2024
+dni::selection -action set -object {instance::lab1::Addr0}
+dni::selection -action set -object {instance::lab1::valid_Q1}
+dni::selection -action set -object {instance::lab1::Mult4}
+dni::selection -action set -object {port_bus::lab1::Addr0|i_dataa}
+dni::trigger_gui -command gui_command::rtl_analyzer::unfold -options {"checkpoint":"user_runs/default_run/elaborated","object":"button @hier_unfold inst Addr0 addr32p16 {}"}
+dni::selection -action set -object {port_bus::lab1::Addr0|i_dataa}
+dni::trigger_gui -command gui_command::rtl_analyzer::unfold -options {"checkpoint":"user_runs/default_run/elaborated","object":"button @hier_unfold inst Mult1 mult32x16 {}"}
+dni::selection -action set -object {port_bus::lab1::Addr0|i_dataa}
+dni::trigger_gui -command gui_command::rtl_analyzer::unfold -options {"checkpoint":"user_runs/default_run/elaborated","object":"button @hier_unfold inst Mult0 mult16x16 {}"}
+dni::selection -action set -object {port_bus::lab1::Addr0|i_dataa}

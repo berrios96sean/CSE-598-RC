@@ -1,0 +1,924 @@
+Synthesis report
+Sun Feb  4 16:58:33 2024
+Quartus Prime Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Synthesis Summary
+  2. Synthesis Settings
+  3. Synthesis Source Files Read
+  4. Synthesis Partition Summary
+  5. Parameter Settings for Top-Level Entity
+  6. Partition "root_partition" Resource Utilization by Entity
+  7. State Machine - Summary
+  8. State Machine - current_state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics for Partition "root_partition"
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Multiplier Implementation Report
+ 14. Registers Added for RAM Pass-Through Logic
+ 15. Source Assignments for out_array_rtl_0|auto_generated
+ 16. Parameter Settings for Inferred Entity Instance: out_array_rtl_0
+ 17. Parameter Settings for Inferred Entity Instance: rem_0_rtl_0
+ 18. Preserve for Debug Assignments for Partition "root_partition"
+ 19. Post-Synthesis Netlist Statistics for Partition "root_partition"
+ 20. Synthesis Resource Usage Summary for Partition "root_partition"
+ 21. Synthesis RAM Summary for Partition "root_partition"
+ 22. Synthesis DSP Block Usage Summary for Partition "root_partition"
+ 23. Hierarchies Optimized Away During Sweep
+ 24. Top Causes of Logic Optimized Away During Sweep
+ 25. Warnings for lab1.v
+ 26. General Warnings
+ 27. Analysis & Elaboration Messages
+ 28. Logic Synthesis Messages
+ 29. Synthesis Messages
+
+
+
++---------------------------------------------------------------+
+; Synthesis Summary                                             ;
++-----------------------+---------------------------------------+
+; Synthesis Status      ; Successful - Sun Feb  4 16:58:32 2024 ;
+; Revision Name         ; lab1                                  ;
+; Top-level Entity Name ; lab1                                  ;
+; Family                ; Arria 10                              ;
++-----------------------+---------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis Settings                                                                                                                  ;
++---------------------------------------------------------------------------------+-------------------------+-------------------------+
+; Option                                                                          ; Setting                 ; Default Value           ;
++---------------------------------------------------------------------------------+-------------------------+-------------------------+
+; Device                                                                          ; 10AX115N2F45I1SG        ;                         ;
+; Top-level entity name                                                           ; lab1                    ; lab1                    ;
+; Family name                                                                     ; Arria 10                ; Cyclone 10 GX           ;
+; Maximum processors allowed for parallel compilation                             ; 2                       ;                         ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                      ; On                      ;
+; Enable compact report table                                                     ; Off                     ; Off                     ;
+; Design Assistant include IP blocks                                              ; Off                     ; Off                     ;
+; High fanout net threshold for RAM inference                                     ; 15                      ; 15                      ;
+; Design Assistant limit on reported violations per rule                          ; 5000                    ; 5000                    ;
+; Optimization Mode                                                               ; Balanced                ; Balanced                ;
+; Allow Register Merging                                                          ; On                      ; On                      ;
+; Allow Register Duplication                                                      ; On                      ; On                      ;
+; Allow Register Retiming                                                         ; On                      ; On                      ;
+; Allow RAM Retiming                                                              ; Off                     ; Off                     ;
+; Allow DSP Retiming                                                              ; Off                     ; Off                     ;
+; Restructure Multiplexers                                                        ; Auto                    ; Auto                    ;
+; Waive gated clock synchronizer check                                            ; On                      ; On                      ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                     ; Off                     ;
+; Preserve fewer node names                                                       ; On                      ; On                      ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                  ; Enable                  ;
+; Verilog Version                                                                 ; Verilog_2001            ; Verilog_2001            ;
+; VHDL Version                                                                    ; VHDL_1993               ; VHDL_1993               ;
+; State Machine Processing                                                        ; Auto                    ; Auto                    ;
+; Safe State Machine                                                              ; Auto                    ; Auto                    ;
+; Iteration limit for constant Verilog loops                                      ; 5000                    ; 5000                    ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                     ; 250                     ;
+; Infer RAMs from Raw Logic                                                       ; On                      ; On                      ;
+; DSP Block Balancing                                                             ; Auto                    ; Auto                    ;
+; NOT Gate Push-Back                                                              ; On                      ; On                      ;
+; Power-Up Don't Care                                                             ; On                      ; On                      ;
+; Remove Redundant Logic Cells                                                    ; Off                     ; Off                     ;
+; Remove Duplicate Registers                                                      ; On                      ; On                      ;
+; Ignore GLOBAL Buffers                                                           ; Off                     ; Off                     ;
+; Ignore LCELL Buffers                                                            ; Off                     ; Off                     ;
+; Ignore SOFT Buffers                                                             ; On                      ; On                      ;
+; Optimization Technique                                                          ; Balanced                ; Balanced                ;
+; Auto Open-Drain Pins                                                            ; On                      ; On                      ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                     ; Off                     ;
+; Auto ROM Replacement                                                            ; On                      ; On                      ;
+; Auto RAM Replacement                                                            ; On                      ; On                      ;
+; Auto DSP Block Replacement                                                      ; On                      ; On                      ;
+; Auto Shift Register Replacement                                                 ; Auto                    ; Auto                    ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                    ; Auto                    ;
+; Auto Clock Enable Replacement                                                   ; On                      ; On                      ;
+; Strict RAM Replacement                                                          ; Off                     ; Off                     ;
+; Allow Synchronous Control Signals                                               ; On                      ; On                      ;
+; Force Use of Synchronous Clear Signals                                          ; Off                     ; Off                     ;
+; Auto Resource Sharing                                                           ; Off                     ; Off                     ;
+; Allow Any RAM Size For Recognition                                              ; Off                     ; Off                     ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                     ; Off                     ;
+; Ignore translate_off and synthesis_off directives                               ; Off                     ; Off                     ;
+; Timing-Driven Synthesis                                                         ; On                      ; On                      ;
+; Report Propagation of Constraints                                               ; On                      ; On                      ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                     ; Off                     ;
+; Synchronization Register Chain Length                                           ; 3                       ; 3                       ;
+; Power Optimization During Synthesis                                             ; Normal compilation      ; Normal compilation      ;
+; HDL message level                                                               ; Level2                  ; Level2                  ;
+; Number of Protected Registers Reported in Synthesis Report                      ; 100                     ; 100                     ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                    ; 5000                    ;
+; Number of Optimized Away Hierarchies Reported in Synthesis Report               ; 100                     ; 100                     ;
+; Group Identical Hierarchies in Optimized Away Hierarchies Report                ; On                      ; On                      ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                    ; 5000                    ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                     ; 100                     ;
+; Clock MUX Protection                                                            ; On                      ; On                      ;
+; Auto Gated Clock Conversion                                                     ; Off                     ; Off                     ;
+; Block Design Naming                                                             ; Auto                    ; Auto                    ;
+; SDC constraint protection                                                       ; Off                     ; Off                     ;
+; Optimization and Constraint Precedence                                          ; Prioritize Optimization ; Prioritize Optimization ;
+; Synthesis Effort                                                                ; Auto                    ; Auto                    ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                      ; On                      ;
+; Analysis & Synthesis Message Level                                              ; Medium                  ; Medium                  ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                    ; Auto                    ;
+; Resource Aware Inference For Block RAM                                          ; On                      ; On                      ;
+; Automatic Parallel Synthesis                                                    ; On                      ; On                      ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                     ; Off                     ;
+; Disable DSP Negate Inferencing                                                  ; Off                     ; Off                     ;
+; Report Parameter Settings                                                       ; On                      ; On                      ;
+; Report Parameter Settings to ASCII                                              ; On                      ; On                      ;
+; Report Source Assignments                                                       ; On                      ; On                      ;
+; Report Source Assignments to ASCII                                              ; On                      ; On                      ;
+; Report Resource Utilization by Entity to ASCII                                  ; On                      ; On                      ;
+; Size of the Latch Report                                                        ; 100                     ; 100                     ;
+; Enable VHDL static assertion support                                            ; Off                     ; Off                     ;
+; Enable SystemVerilog static assertion support                                   ; Off                     ; Off                     ;
+; Enable State Machines Inference                                                 ; On                      ; On                      ;
+; Allow RAMs Inferred In Generate-For Loop For Verilog                            ; Off                     ; Off                     ;
+; Enable formal verification support during compilation                           ; Off                     ; Off                     ;
+; Size of the PR Initial Conditions Report                                        ; 100                     ; 100                     ;
+; Number of Registers with Ignored Power-Up Settings Reported in Synthesis Report ; 500                     ; 500                     ;
+; Report PR Initial Values as Errors                                              ; Off                     ; Off                     ;
+; Fractal Synthesis                                                               ; Off                     ; Off                     ;
+; Synthesis Available Resource Multiplier                                         ; 1                       ; 1                       ;
+; Message Level for Unconnected Output Ports                                      ; Warning                 ; Warning                 ;
+; Pack Barrelshifters into Carry Chains for Better Area                           ; Auto                    ; Auto                    ;
+; Initialize Verilog enums to X                                                   ; Off                     ; Off                     ;
+; Enable dynamic report                                                           ; Off                     ; Off                     ;
+; Show Collapsible Rows in Ascii Report for Warning Summary Reports               ; On                      ; On                      ;
+; Enable preserve for debug assignments                                           ; Off                     ; Off                     ;
++---------------------------------------------------------------------------------+-------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis Source Files Read                                                                                                                                                                                                                                                                                                                   ;
++-------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+---------+-----------+---------------+----------------------------------+
+; File Name with User-Entered Path                                                          ; File Type                                                                   ; File Name with Absolute Path                                                               ; Library ; IP Source ; Include Files ; MD5                              ;
++-------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+---------+-----------+---------------+----------------------------------+
+; SDC1.sdc                                                                                  ; User-Specified SDC File (Read by the Timing Analyzer at each fitter stage)  ; /home/sfberrio/repos/lab1/srcs/shared/SDC1.sdc                                             ;         ;           ;               ; 4df1382b23fbed36e7887908f043ce45 ;
+; lab1_tb.v                                                                                 ; User-Specified Verilog HDL File                                             ; /home/sfberrio/repos/lab1/srcs/shared/lab1_tb.v                                            ;         ;           ;               ; 9eb020b8b5509a467a2dd567a4a884da ;
+; lab1.v                                                                                    ; User-Specified Verilog HDL File                                             ; /home/sfberrio/repos/lab1/srcs/shared/lab1.v                                               ;         ;           ;               ; fd3377b348a94716e484640f0311f563 ;
+; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/altsyncram.tdf       ; Megafunction                                                                ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/altsyncram.tdf        ; work    ;           ;               ;                                  ;
+; stratix_ram_block.inc                                                                     ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;           ;               ;                                  ;
+; lpm_mux.inc                                                                               ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;           ;               ;                                  ;
+; lpm_decode.inc                                                                            ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;           ;               ;                                  ;
+; aglobal234.inc                                                                            ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/aglobal234.inc        ;         ;           ;               ;                                  ;
+; a_rdenreg.inc                                                                             ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;           ;               ;                                  ;
+; altrom.inc                                                                                ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/altrom.inc            ;         ;           ;               ;                                  ;
+; altram.inc                                                                                ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/altram.inc            ;         ;           ;               ;                                  ;
+; altdpram.inc                                                                              ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/altdpram.inc          ;         ;           ;               ;                                  ;
+; cbx.lst                                                                                   ; Auto-Found Unspecified File                                                 ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/cbx.lst               ;         ;           ;               ;                                  ;
+; /home/sfberrio/repos/lab1/srcs/shared/tmp-clearbox/lab1/1500090/altsyncram_qmv31.tdf      ; Auto-Generated Megafunction                                                 ; /home/sfberrio/repos/lab1/srcs/shared/tmp-clearbox/lab1/1500090/altsyncram_qmv31.tdf       ;         ;           ;               ;                                  ;
+; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/lpm_divide.tdf       ; Megafunction                                                                ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/lpm_divide.tdf        ; work    ;           ;               ;                                  ;
+; abs_divider.inc                                                                           ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/abs_divider.inc       ;         ;           ;               ;                                  ;
+; sign_div_unsign.inc                                                                       ; Auto-Found File                                                             ; /packages/apps/fpga/Quartus_Pro/23.4/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;           ;               ;                                  ;
+; /home/sfberrio/repos/lab1/srcs/shared/tmp-clearbox/lab1/1500090/alt_u_div_aq42.tdf        ; Auto-Generated Megafunction                                                 ; /home/sfberrio/repos/lab1/srcs/shared/tmp-clearbox/lab1/1500090/alt_u_div_aq42.tdf         ;         ;           ;               ;                                  ;
+; /home/sfberrio/repos/lab1/srcs/shared/tmp-clearbox/lab1/1500090/sign_div_unsign_2nl72.tdf ; Auto-Generated Megafunction                                                 ; /home/sfberrio/repos/lab1/srcs/shared/tmp-clearbox/lab1/1500090/sign_div_unsign_2nl72.tdf  ;         ;           ;               ;                                  ;
+; /home/sfberrio/repos/lab1/srcs/shared/tmp-clearbox/lab1/1500090/lpm_divide_agm12.tdf      ; Auto-Generated Megafunction                                                 ; /home/sfberrio/repos/lab1/srcs/shared/tmp-clearbox/lab1/1500090/lpm_divide_agm12.tdf       ;         ;           ;               ;                                  ;
++-------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+--------------------------------------------------------------------------------------------+---------+-----------+---------------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Synthesis Partition Summary                                                                ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+; Partition Name ; Hierarchy Path ; Type    ; Preservation ; Empty ; Partition Database File ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+; root_partition ; |              ; Default ;              ;       ;                         ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+
+
++-----------------------------------------------------+
+; Parameter Settings for Top-Level Entity             ;
++----------------+------------------+-----------------+
+; Parameter Name ; Value            ; Type            ;
++----------------+------------------+-----------------+
+; A0             ; 0100000000000000 ; Unsigned Binary ;
+; A1             ; 0100000000000000 ; Unsigned Binary ;
+; A2             ; 0010000000000000 ; Unsigned Binary ;
+; A3             ; 0000101010101010 ; Unsigned Binary ;
+; A4             ; 0000001010101010 ; Unsigned Binary ;
+; A5             ; 0000000010001000 ; Unsigned Binary ;
+; WIDTHIN        ; 16               ; Signed Integer  ;
+; WIDTHOUT       ; 32               ; Signed Integer  ;
++----------------+------------------+-----------------+
+All Instances:
+<top>
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Partition "root_partition" Resource Utilization by Entity                                                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+-------------+--------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; IOPLLs ; Max Depth   ; Full Hierarchy Name                        ; Entity Name           ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+-------------+--------------------------------------------+-----------------------+--------------+
+; |                          ; 852 (738)           ; 1055 (1055)               ; 1664              ; 2          ; 54   ; 0            ; 0 (0)  ; 20.1 (20.1) ; |                                          ; lab1                  ; altera_work  ;
+;    |Addr0|                 ; 20 (20)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 3.9 (3.9)   ; Addr0                                      ; addr32p16             ; altera_work  ;
+;    |Mult0|                 ; 32 (32)             ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; 0 (0)  ; 1.0 (1.0)   ; Mult0                                      ; mult32x16             ; altera_work  ;
+;    |mux0|                  ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 3.9 (3.9)   ; mux0                                       ; mux                   ; altera_work  ;
+;    |out_array_rtl_0|       ; 0 (0)               ; 0 (0)                     ; 1664              ; 0          ; 0    ; 0            ; 0 (0)  ; 2.0 (0.0)   ; out_array_rtl_0                            ; altsyncram            ; work         ;
+;       |auto_generated|     ; 0 (0)               ; 0 (0)                     ; 1664              ; 0          ; 0    ; 0            ; 0 (0)  ; 2.0 (2.0)   ; out_array_rtl_0|auto_generated             ; altsyncram_qmv31      ; altera_work  ;
+;    |rem_0_rtl_0|           ; 51 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 20.1 (0.0)  ; rem_0_rtl_0                                ; lpm_divide            ; work         ;
+;       |auto_generated|     ; 51 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 20.1 (0.0)  ; rem_0_rtl_0|auto_generated                 ; lpm_divide_agm12      ; altera_work  ;
+;          |divider|         ; 51 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 20.1 (0.0)  ; rem_0_rtl_0|auto_generated|divider         ; sign_div_unsign_2nl72 ; altera_work  ;
+;             |divider|      ; 51 (51)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 20.1 (20.1) ; rem_0_rtl_0|auto_generated|divider|divider ; alt_u_div_aq42        ; altera_work  ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+-------------+--------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------+
+; State Machine - Summary                                                   ;
++---------------+------------------+------------+----------------+----------+
+; Name          ; Number of States ; Using aclr ; Encoding Style ; Safeness ;
++---------------+------------------+------------+----------------+----------+
+; current_state ; 4                ; No         ; One-Hot        ; Not Safe ;
++---------------+------------------+------------+----------------+----------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------+
+; State Machine - current_state                                                                            ;
++---------------------+---------------------+-------------------+---------------------+--------------------+
+; Name                ; current_state.MULT2 ; current_state.ADD ; current_state.MULT1 ; current_state.IDLE ;
++---------------------+---------------------+-------------------+---------------------+--------------------+
+; current_state.IDLE  ; 0                   ; 0                 ; 0                   ; 0                  ;
+; current_state.MULT1 ; 0                   ; 0                 ; 1                   ; 1                  ;
+; current_state.ADD   ; 0                   ; 1                 ; 0                   ; 1                  ;
+; current_state.MULT2 ; 1                   ; 0                 ; 0                   ; 1                  ;
++---------------------+---------------------+-------------------+---------------------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; add_ina[0]                                          ; i520                ; yes                    ;
+; add_ina[1]                                          ; i520                ; yes                    ;
+; add_ina[2]                                          ; i520                ; yes                    ;
+; add_ina[3]                                          ; i520                ; yes                    ;
+; add_ina[4]                                          ; i520                ; yes                    ;
+; add_ina[5]                                          ; i520                ; yes                    ;
+; add_ina[6]                                          ; i520                ; yes                    ;
+; add_ina[7]                                          ; i520                ; yes                    ;
+; add_ina[8]                                          ; i520                ; yes                    ;
+; add_ina[9]                                          ; i520                ; yes                    ;
+; add_ina[10]                                         ; i520                ; yes                    ;
+; add_ina[11]                                         ; i520                ; yes                    ;
+; out_sel                                             ; i514                ; yes                    ;
+; mux0|out[1]$latch                                   ; mux0|Mux_16~0       ; yes                    ;
+; add_ina[12]                                         ; i520                ; yes                    ;
+; add_ina[13]                                         ; i520                ; yes                    ;
+; mux0|out[3]$latch                                   ; mux0|Mux_16~0       ; yes                    ;
+; add_ina[14]                                         ; i520                ; yes                    ;
+; add_ina[15]                                         ; i520                ; yes                    ;
+; add_ina[16]                                         ; i520                ; yes                    ;
+; add_ina[17]                                         ; i520                ; yes                    ;
+; add_ina[18]                                         ; i520                ; yes                    ;
+; add_ina[19]                                         ; i520                ; yes                    ;
+; add_ina[20]                                         ; i520                ; yes                    ;
+; add_ina[21]                                         ; i520                ; yes                    ;
+; mux0|out[11]$latch                                  ; mux0|Mux_16~0       ; yes                    ;
+; add_ina[22]                                         ; i520                ; yes                    ;
+; add_ina[23]                                         ; i520                ; yes                    ;
+; mux0|out[13]$latch                                  ; mux0|Mux_16~0       ; yes                    ;
+; add_ina[24]                                         ; i520                ; yes                    ;
+; mux0|out[14]$latch                                  ; mux0|Mux_16~0       ; yes                    ;
+; add_ina[25]                                         ; i520                ; yes                    ;
+; add_ina[26]                                         ; i520                ; yes                    ;
+; add_ina[27]                                         ; i520                ; yes                    ;
+; add_ina[28]                                         ; i520                ; yes                    ;
+; add_ina[29]                                         ; i520                ; yes                    ;
+; add_ina[30]                                         ; i520                ; yes                    ;
+; add_ina[31]                                         ; i520                ; yes                    ;
+; mult0_ina[0]                                        ; i418                ; yes                    ;
+; mult0_ina[1]                                        ; i418                ; yes                    ;
+; mult0_ina[2]                                        ; i418                ; yes                    ;
+; mult0_ina[3]                                        ; i418                ; yes                    ;
+; mult0_ina[4]                                        ; i418                ; yes                    ;
+; mult0_ina[5]                                        ; i418                ; yes                    ;
+; mult0_ina[6]                                        ; i418                ; yes                    ;
+; mult0_ina[7]                                        ; i418                ; yes                    ;
+; mult0_ina[8]                                        ; i418                ; yes                    ;
+; mult0_ina[9]                                        ; i418                ; yes                    ;
+; mult0_ina[10]                                       ; i418                ; yes                    ;
+; mult0_ina[11]                                       ; i418                ; yes                    ;
+; mult0_ina[12]                                       ; i418                ; yes                    ;
+; mult0_ina[13]                                       ; i418                ; yes                    ;
+; mult0_ina[14]                                       ; i418                ; yes                    ;
+; mult0_ina[15]                                       ; i418                ; yes                    ;
+; mult0_ina[16]                                       ; i418                ; yes                    ;
+; mult0_ina[17]                                       ; i418                ; yes                    ;
+; next_state.MULT1                                    ; Select_72           ; yes                    ;
+; next_state.MULT2                                    ; Select_72           ; yes                    ;
+; mult0_ina[18]                                       ; i418                ; yes                    ;
+; mult0_ina[19]                                       ; i418                ; yes                    ;
+; mult0_ina[20]                                       ; i418                ; yes                    ;
+; mult0_ina[21]                                       ; i418                ; yes                    ;
+; mult0_ina[22]                                       ; i418                ; yes                    ;
+; mult0_ina[23]                                       ; i418                ; yes                    ;
+; mult0_ina[24]                                       ; i418                ; yes                    ;
+; mult0_ina[25]                                       ; i418                ; yes                    ;
+; mult0_ina[26]                                       ; i418                ; yes                    ;
+; mult0_ina[27]                                       ; i418                ; yes                    ;
+; mult0_ina[28]                                       ; i418                ; yes                    ;
+; mult0_ina[29]                                       ; i418                ; yes                    ;
+; mult0_ina[30]                                       ; i418                ; yes                    ;
+; mult0_ina[31]                                       ; i418                ; yes                    ;
+; mux_sel[2]                                          ; i520                ; yes                    ;
+; mux_sel[1]                                          ; i520                ; yes                    ;
+; mux_sel[0]                                          ; i520                ; yes                    ;
+; next_state.IDLE                                     ; Select_72           ; yes                    ;
+; next_state.ADD                                      ; Select_72           ; yes                    ;
+; Number of user-specified and inferred latches = 77  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++----------------------------------------+--------------------+
+; Register name                          ; Reason for Removal ;
++----------------------------------------+--------------------+
+; a_out_r1[0..31]                        ; Lost fanout        ;
+; current_state~0                        ; Lost fanout        ;
+; current_state~1                        ; Lost fanout        ;
+; current_state~2                        ; Lost fanout        ;
+; t_counter[6..31]                       ; Lost fanout        ;
+; index2[6..31]                          ; Lost fanout        ;
+; Total Number of Removed Registers = 87 ;                    ;
++----------------------------------------+--------------------+
+
+
++------------------------------------------------------------+
+; General Register Statistics for Partition "root_partition" ;
++----------------------------------------------+-------------+
+; Statistic                                    ; Value       ;
++----------------------------------------------+-------------+
+; Total registers                              ; 1055        ;
+; Number of registers using Synchronous Clear  ; 0           ;
+; Number of registers using Synchronous Load   ; 12          ;
+; Number of registers using Asynchronous Clear ; 260         ;
+; Number of registers using Asynchronous Load  ; 0           ;
+; Number of registers using Clock Enable       ; 970         ;
+; Number of registers using Preset             ; 0           ;
++----------------------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+-------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ; Restructuring Performed ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+-------------------------+
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; t_output[17]               ; Yes                     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; i217                       ; Yes                     ;
+; 51:1               ; 16 bits   ; 544 LEs       ; 544 LEs              ; 0 LEs                  ; No         ; Mux_15                     ; Yes                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplier Implementation Report                                                                                                                 ;
++------------------------+---------------+---------------+----------------+-------------------------------------+----------------------------------+
+; Multiplier Name        ; Input A Width ; Input B Width ; Output O Width ; Target                              ; Reason                           ;
++------------------------+---------------+---------------+----------------+-------------------------------------+----------------------------------+
+; Mult0|mult_0           ; 32            ; 16            ; 48             ; decomposed into smaller multipliers ; too large for direct DSP mapping ;
+; Mult0|mult_0~mult_l_   ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
+; Mult0|mult_0~mult_l__1 ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
++------------------------+---------------+---------------+----------------+-------------------------------------+----------------------------------+
+
+
++----------------------------------------------+
+; Registers Added for RAM Pass-Through Logic   ;
++----------------------------+-----------------+
+; Register Name              ; RAM Name        ;
++----------------------------+-----------------+
+; out_array_rtl_0_bypass[0]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[1]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[2]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[3]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[4]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[5]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[6]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[7]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[8]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[9]  ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[10] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[11] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[12] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[13] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[14] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[15] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[16] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[17] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[18] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[19] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[20] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[21] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[22] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[23] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[24] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[25] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[26] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[27] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[28] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[29] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[30] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[31] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[32] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[33] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[34] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[35] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[36] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[37] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[38] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[39] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[40] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[41] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[42] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[43] ; out_array_rtl_0 ;
+; out_array_rtl_0_bypass[44] ; out_array_rtl_0 ;
++----------------------------+-----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Source Assignments for out_array_rtl_0|auto_generated                                                               ;
++---------------------------------+--------------------+------+----+--------------------------------------------------+
+; Assignment                      ; Value              ; From ; To ; Source Location                                  ;
++---------------------------------+--------------------+------+----+--------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -  ; tmp-clearbox/lab1/1500090/altsyncram_qmv31.tdf:0 ;
++---------------------------------+--------------------+------+----+--------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: out_array_rtl_0         ;
++------------------------------------+----------------------+--------------+
+; Parameter Name                     ; Value                ; Type         ;
++------------------------------------+----------------------+--------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped      ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; Untyped      ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; Untyped      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; Untyped      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped      ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped      ;
+; WIDTH_A                            ; 32                   ; Untyped      ;
+; WIDTHAD_A                          ; 6                    ; Untyped      ;
+; NUMWORDS_A                         ; 51                   ; Untyped      ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped      ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped      ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped      ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped      ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped      ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped      ;
+; WIDTH_B                            ; 32                   ; Untyped      ;
+; WIDTHAD_B                          ; 6                    ; Untyped      ;
+; NUMWORDS_B                         ; 51                   ; Untyped      ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped      ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped      ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped      ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped      ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped      ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped      ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped      ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped      ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped      ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped      ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped      ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped      ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped      ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped      ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped      ;
+; BYTE_SIZE                          ; 8                    ; Untyped      ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped      ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped      ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped      ;
+; INIT_FILE                          ; UNUSED               ; Untyped      ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped      ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped      ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped      ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped      ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped      ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped      ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped      ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped      ;
+; ENABLE_ECC                         ; FALSE                ; Untyped      ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped      ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped      ;
+; DEVICE_FAMILY                      ; Arria 10             ; Untyped      ;
+; CBXI_PARAMETER                     ; altsyncram_qmv31     ; Untyped      ;
++------------------------------------+----------------------+--------------+
+
+
++--------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: rem_0_rtl_0 ;
++------------------------+------------------+------------------+
+; Parameter Name         ; Value            ; Type             ;
++------------------------+------------------+------------------+
+; LPM_WIDTHN             ; 32               ; Untyped          ;
+; LPM_WIDTHD             ; 5                ; Untyped          ;
+; LPM_NREPRESENTATION    ; UNSIGNED         ; Untyped          ;
+; LPM_DREPRESENTATION    ; UNSIGNED         ; Untyped          ;
+; LPM_PIPELINE           ; 0                ; Untyped          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE             ; Untyped          ;
+; MAXIMIZE_SPEED         ; 5                ; Untyped          ;
+; CBXI_PARAMETER         ; lpm_divide_agm12 ; Untyped          ;
+; CARRY_CHAIN            ; MANUAL           ; Untyped          ;
+; OPTIMIZE_FOR_SPEED     ; 5                ; Untyped          ;
+; AUTO_CARRY_CHAINS      ; ON               ; Untyped          ;
+; IGNORE_CARRY_BUFFERS   ; OFF              ; Untyped          ;
+; AUTO_CASCADE_CHAINS    ; ON               ; AUTO_CASCADE     ;
+; IGNORE_CASCADE_BUFFERS ; OFF              ; Untyped          ;
++------------------------+------------------+------------------+
+
+
++---------------------------------------------------------------+
+; Preserve for Debug Assignments for Partition "root_partition" ;
++------+--------+-----------------------------------------------+
+; Name ; Status ; Notes                                         ;
++------+--------+-----------------------------------------------+
+Notes: Table created because there is an active PRESERVE_FOR_DEBUG_ENABLE in the project, even though there are no tagged names within the partition.
+
+
++------------------------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Partition "root_partition" ;
++------------------------+-----------------------------------------+
+; Type                   ; Count                                   ;
++------------------------+-----------------------------------------+
+; boundary_port          ; 54                                      ;
+; twentynm_ff            ; 1055                                    ;
+;     CLR                ; 34                                      ;
+;     CLR SLD            ; 12                                      ;
+;     ENA                ; 756                                     ;
+;     ENA CLR            ; 214                                     ;
+;     plain              ; 39                                      ;
+; twentynm_lcell_comb    ; 852                                     ;
+;     arith              ; 157                                     ;
+;         0 data inputs  ; 1                                       ;
+;         1 data inputs  ; 114                                     ;
+;         2 data inputs  ; 42                                      ;
+;     extend             ; 1                                       ;
+;         7 data inputs  ; 1                                       ;
+;     normal             ; 694                                     ;
+;         1 data inputs  ; 4                                       ;
+;         2 data inputs  ; 63                                      ;
+;         3 data inputs  ; 155                                     ;
+;         4 data inputs  ; 17                                      ;
+;         5 data inputs  ; 66                                      ;
+;         6 data inputs  ; 389                                     ;
+; twentynm_mac           ; 2                                       ;
+; twentynm_ram_block     ; 32                                      ;
+;                        ;                                         ;
+; Number of carry chains ; 7                                       ;
+; Max carry chain length ; 32                                      ;
+;                        ;                                         ;
+; Max LUT depth          ; 20.10                                   ;
+; Average LUT depth      ; 4.21                                    ;
++------------------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Synthesis Resource Usage Summary for Partition "root_partition" ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimate of Logic utilization (ALMs needed) ; 782               ;
+;                                             ;                   ;
+; Combinational ALUT usage for logic          ; 852               ;
+;     -- 7 input functions                    ; 1                 ;
+;     -- 6 input functions                    ; 389               ;
+;     -- 5 input functions                    ; 66                ;
+;     -- 4 input functions                    ; 17                ;
+;     -- <=3 input functions                  ; 379               ;
+;                                             ;                   ;
+; Dedicated logic registers                   ; 1055              ;
+;                                             ;                   ;
+; I/O pins                                    ; 54                ;
+; Total MLAB memory bits                      ; 0                 ;
+; Total block memory bits                     ; 1664              ;
+;                                             ;                   ;
+; Total DSP Blocks                            ; 2                 ;
+;     -- [A] Total Fixed Point DSP Blocks     ; 2                 ;
+;     -- [B] Total Floating Point DSP Blocks  ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; clk               ;
+; Maximum fan-out                             ; 1087              ;
+; Total fan-out                               ; 7606              ;
+; Average fan-out                             ; 3.81              ;
++---------------------------------------------+-------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis RAM Summary for Partition "root_partition"                                                                                          ;
++-------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                      ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; out_array_rtl_0|auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 52           ; 32           ; 52           ; 32           ; 1664 ; None ;
++-------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++------------------------------------------------------------------+
+; Synthesis DSP Block Usage Summary for Partition "root_partition" ;
++---------------------------------+--------------------------------+
+; Statistic                       ; Number Used                    ;
++---------------------------------+--------------------------------+
+; Two Independent 18x18           ; 1                              ;
+; Independent 18x18 Plus 36       ; 1                              ;
+; Total number of DSP blocks      ; 2                              ;
+;                                 ;                                ;
+; Fixed Point Unsigned Multiplier ; 2                              ;
++---------------------------------+--------------------------------+
+Note: DSP block merging and most register packing occurs during the fitter.
+
+
+Hierarchies have been optimized away during sweep. Use the " Sweep Hints Viewer " tool in the " RTL Analyzer " for more details and filtering options.
++-----------------------------------------------------------------------------------------+
+; Hierarchies Optimized Away During Sweep                                                 ;
++-------------+--------------------+------------------------------+-----------------------+
+; Entity Name ; Number of Instance ; Number of Gates before Sweep ; Sample Hierarchy Name ;
++-------------+--------------------+------------------------------+-----------------------+
+; mux2        ; 1                  ; 32                           ; mux1                  ;
++-------------+--------------------+------------------------------+-----------------------+
+
+
+Top root causes of logic optimization that have been identified during sweep. Go to the " Root Causes Tab " in the " Sweep Hints Viewer " tool in the " RTL Analyzer " for more details and filtering options.
++-------------------------------------------------------------------------+
+; Top Causes of Logic Optimized Away During Sweep                         ;
++------------------+------------------+-------------+---------------------+
+; Root Object Path ; Root Object Type ; Root Reason ; Swept Objects Count ;
++------------------+------------------+-------------+---------------------+
+; mux1|out[0]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
+; mux1|out[1]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
+; mux1|out[2]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
+; mux1|out[3]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
+; mux1|out[4]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
+; mux1|out[5]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
+; mux1|out[6]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
+; mux1|out[7]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
+; mux1|out[8]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
+; mux1|out[9]      ; OUTPUT_INST_PORT ; lost_fanout ; 1                   ;
++------------------+------------------+-------------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Warnings for lab1.v                                                                                                                                                                                        ;
++-----------------+----------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Message ID      ; Severity ; Count ; Sample Warning                                                                                                                                                        ;
++-----------------+----------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 13012:13013     ; Warning  ; 44    ; Latch out_sel has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.MULT1                                                       ;
+;     13012:13013 ;          ;       ; Latch out_sel has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.MULT1                                                       ;
+;     13012:13013 ;          ;       ; Latch mux0|out[1]$latch has unsafe behavior : Ports D and ENA on the latch are fed by the same signal mux_sel[2]                                                      ;
+;     13012:13013 ;          ;       ; Latch mux0|out[3]$latch has unsafe behavior : Ports D and ENA on the latch are fed by the same signal mux_sel[2]                                                      ;
+;     13012:13013 ;          ;       ; Latch mux0|out[11]$latch has unsafe behavior : Ports D and ENA on the latch are fed by the same signal mux_sel[1]                                                     ;
+;     13012:13013 ;          ;       ; Latch mux0|out[13]$latch has unsafe behavior : Ports D and ENA on the latch are fed by the same signal mux_sel[1]                                                     ;
+;     13012:13013 ;          ;       ; Latch mux0|out[14]$latch has unsafe behavior : Ports D and ENA on the latch are fed by the same signal mux_sel[2]                                                     ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[0] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[1] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[2] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[3] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[4] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[5] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[6] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[7] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[8] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[9] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                    ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[10] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[11] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[12] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[13] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[14] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[15] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[16] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[17] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch next_state.MULT1 has unsafe behavior : Ports D and ENA on the latch are fed by the same signal counter[31]                                                      ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[18] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[19] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[20] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[21] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[22] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[23] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[24] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[25] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[26] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[27] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[28] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[29] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[30] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mult0_ina[31] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.ADD                                                   ;
+;     13012:13013 ;          ;       ; Latch mux_sel[1] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.MULT2                                                    ;
+;     13012:13013 ;          ;       ; Latch mux_sel[0] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.MULT2                                                    ;
+;     13012:13013 ;          ;       ; Latch mux_sel[2] has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.MULT2                                                    ;
+;     13012:13013 ;          ;       ; Latch next_state.IDLE has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.MULT2                                               ;
+;     13012:13013 ;          ;       ; Latch next_state.ADD has unsafe behavior : Ports D and ENA on the latch are fed by the same signal current_state.MULT1                                                ;
+; 13475           ; Warning  ; 7     ; Verilog HDL Always Construct warning at lab1.v(94): variable "reset" is read inside the Always Construct but isn't in the Always Construct's Event Control            ;
+;     13475       ;          ;       ; Verilog HDL Always Construct warning at lab1.v(94): variable "reset" is read inside the Always Construct but isn't in the Always Construct's Event Control            ;
+;     13475       ;          ;       ; Verilog HDL Always Construct warning at lab1.v(110): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control           ;
+;     13475       ;          ;       ; Verilog HDL Always Construct warning at lab1.v(117): variable "a_out" is read inside the Always Construct but isn't in the Always Construct's Event Control           ;
+;     13475       ;          ;       ; Verilog HDL Always Construct warning at lab1.v(122): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control           ;
+;     13475       ;          ;       ; Verilog HDL Always Construct warning at lab1.v(126): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control           ;
+;     13475       ;          ;       ; Verilog HDL Always Construct warning at lab1.v(130): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control           ;
+;     13475       ;          ;       ; Verilog HDL Always Construct warning at lab1.v(134): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control           ;
+; 16788           ; Warning  ; 1     ; Net "mux_sel2" does not have a driver at lab1.v(45)                                                                                                                   ;
+; 19651           ; Warning  ; 2     ; Verilog HDL warning at lab1.v(140): latch inferred for net next_state.IDLE                                                                                            ;
+;     19651       ;          ;       ; Verilog HDL warning at lab1.v(140): latch inferred for net next_state.IDLE                                                                                            ;
+;     19651       ;          ;       ; Verilog HDL warning at lab1.v(392): latch inferred for net out[15]                                                                                                    ;
+; 276020          ; Warning  ; 1     ; Inferred RAM node "out_array_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design. ;
++-----------------+----------+-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; General Warnings                                                                                                                                        ;
++------------+----------+-------+-------------------------------------------------------------------------------------------------------------------------+
+; Message ID ; Severity ; Count ; Sample Warning                                                                                                          ;
++------------+----------+-------+-------------------------------------------------------------------------------------------------------------------------+
+; 23762      ; Warning  ; 1     ; Hierarchies were optimized away during sweep. For details, refer to " Hierarchies Optimized Away During Sweep " report. ;
++------------+----------+-------+-------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Synthesis
+    Info: Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+    Info: Processing started: Sun Feb  4 16:58:14 2024
+    Info: System process ID: 1500090
+Info: Command: quartus_syn --dni --read_settings_files=on --write_settings_files=off lab1 -c lab1
+Info: The application is running in 'DNI' mode.
+Info: qis_default_flow_script.tcl version: #3
+Info: Initializing Synthesis in DNI mode...
+Info: Project = "lab1"
+Info: Revision = "lab1"
+Info (21958): Initialized Quartus Message Database
+Info: Analyzing source files
+Info: Elaborating from top-level entity "lab1"
+Info (22567): Verilog HDL info at lab1.v(36): extracting RAM for identifier 'out_array' File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 36
+Warning (13475): Verilog HDL Always Construct warning at lab1.v(94): variable "reset" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 94
+Warning (13475): Verilog HDL Always Construct warning at lab1.v(110): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 110
+Warning (13475): Verilog HDL Always Construct warning at lab1.v(117): variable "a_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 117
+Warning (13475): Verilog HDL Always Construct warning at lab1.v(122): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 122
+Warning (13475): Verilog HDL Always Construct warning at lab1.v(126): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 126
+Warning (13475): Verilog HDL Always Construct warning at lab1.v(130): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 130
+Warning (13475): Verilog HDL Always Construct warning at lab1.v(134): variable "m_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 134
+Warning (19651): Verilog HDL warning at lab1.v(140): latch inferred for net next_state.IDLE File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 140
+Warning (19651): Verilog HDL warning at lab1.v(392): latch inferred for net out[15] File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 392
+Warning (16788): Net "mux_sel2" does not have a driver at lab1.v(45) File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 45
+Info: Found 7 design entities
+Info: There are 5 partitions after elaboration.
+Warning (23762): Hierarchies were optimized away during sweep. For details, refer to " Hierarchies Optimized Away During Sweep " report.
+
+
++--------------------------+
+; Logic Synthesis Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Synthesis
+    Info: Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+    Info: Processing started: Sun Feb  4 16:58:14 2024
+    Info: System process ID: 1500090
+Info: Command: quartus_syn --dni --read_settings_files=on --write_settings_files=off lab1 -c lab1
+Info: The application is running in 'DNI' mode.
+Info: qis_default_flow_script.tcl version: #3
+Info: Initializing Synthesis in DNI mode...
+Info: Project = "lab1"
+Info: Revision = "lab1"
+Info: Synthesizing partition "root_partition"
+Warning (276020): Inferred RAM node "out_array_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design. File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 36
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "out_array_rtl_0"  File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 36
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 6
+        Info (286033): Parameter NUMWORDS_A set to 51
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 6
+        Info (286033): Parameter NUMWORDS_B set to 51
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "rem_0_rtl_0" File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 100
+Info (272008): You have specified 51 odd size of memory words in Altera Syncram IP. Altera Syncram IP does not allow odd size memory words and auto corrected to 52 memory words. File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 36
+Info (287000): Assertion information: You have specified 51 odd size of memory words in Altera Syncram IP. Altera Syncram IP does not allow odd size memory words and auto corrected to 52 memory words. File: /home/sfberrio/repos/lab1/srcs/shared/tmp-clearbox/lab1/1500090/altsyncram_qmv31.tdf Line: 978
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "mux0|out[9]$latch" merged with LATCH primitive "mux0|out[1]$latch" File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 392
+    Info (13026): Duplicate LATCH primitive "mux0|out[5]$latch" merged with LATCH primitive "mux0|out[1]$latch" File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 392
+    Info (13026): Duplicate LATCH primitive "mux0|out[7]$latch" merged with LATCH primitive "mux0|out[3]$latch" File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 392
+Warning (13012): Latch out_sel has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 140
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.MULT1 File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mux0|out[1]$latch has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 392
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal mux_sel[2] File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 44
+Warning (13012): Latch mux0|out[3]$latch has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 392
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal mux_sel[2] File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 44
+Warning (13012): Latch mux0|out[11]$latch has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 392
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal mux_sel[1] File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 44
+Warning (13012): Latch mux0|out[13]$latch has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 392
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal mux_sel[1] File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 44
+Warning (13012): Latch mux0|out[14]$latch has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 392
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal mux_sel[2] File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 44
+Warning (13012): Latch mult0_ina[0] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[1] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[2] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[3] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[4] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[5] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[6] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[7] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[8] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[9] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[10] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[11] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[12] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[13] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[14] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[15] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[16] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[17] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch next_state.MULT1 has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 140
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal counter[31] File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 40
+Warning (13012): Latch mult0_ina[18] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[19] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[20] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[21] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[22] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[23] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[24] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[25] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[26] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[27] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[28] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[29] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[30] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mult0_ina[31] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 66
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.ADD File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mux_sel[1] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.MULT2 File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mux_sel[0] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.MULT2 File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch mux_sel[2] has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 44
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.MULT2 File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch next_state.IDLE has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 140
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.MULT2 File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Warning (13012): Latch next_state.ADD has unsafe behavior File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 140
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.MULT1 File: /home/sfberrio/repos/lab1/srcs/shared/lab1.v Line: 89
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 87 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 1859 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 20 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21061): Implemented 1771 logic cells
+    Info (21064): Implemented 32 RAM segments
+    Info (21062): Implemented 2 DSP elements
+Info: Successfully synthesized partition
+Info: Saving post-synthesis snapshots for 1 partition(s)
+Info: Quartus Prime Synthesis was successful. 0 errors, 89 warnings
+    Info: Peak virtual memory: 1541 megabytes
+    Info: Processing ended: Sun Feb  4 16:58:33 2024
+    Info: Elapsed time: 00:00:19
+    Info: System process ID: 1500090
+
+
++--------------------+
+; Synthesis Messages ;
++--------------------+
+Messages appear in 'Analysis & Elaboration Messages' and 'Logic Synthesis Messages'
+
+

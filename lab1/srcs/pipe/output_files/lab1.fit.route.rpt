@@ -1,0 +1,214 @@
+Fitter Route Stage Report for lab1
+Sun Feb  4 22:00:29 2024
+Quartus Prime Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Delay Chain Summary
+  3. Routing Usage Summary
+  4. Route Messages
+  5. Estimated Delay Added for Hold Timing Summary
+  6. Estimated Delay Added for Hold Timing Details
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Delay Chain Summary                                                                                                                                   ;
++------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; Name ; Pin Type ; Input Delay Chain 0 ; Output Delay Chain ; OE Delay Chain ; IO_12_LANE Input Data Delay Chain ; IO_12_LANE Input Strobe Delay Chain ;
++------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; clk  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
++------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+
+
++----------------------------------------------------------+
+; Routing Usage Summary                                    ;
++------------------------------+---------------------------+
+; Routing Resource Type        ; Usage                     ;
++------------------------------+---------------------------+
+; Block interconnects          ; 690 / 3,375,986 ( < 1 % ) ;
+; C27 interconnects            ; 0 / 56,741 ( 0 % )        ;
+; C4 interconnects             ; 411 / 2,570,048 ( < 1 % ) ;
+; Direct links                 ; 97 / 3,375,986 ( < 1 % )  ;
+; Global clocks                ; 2 / 32 ( 6 % )            ;
+; Periphery clocks             ; 0 / 910 ( 0 % )           ;
+; R3 interconnects             ; 201 / 1,214,760 ( < 1 % ) ;
+; R32 interconnects            ; 0 / 99,472 ( 0 % )        ;
+; R32/C27 interconnect drivers ; 0 / 385,136 ( 0 % )       ;
+; R6 interconnects             ; 323 / 2,336,152 ( < 1 % ) ;
+; Regional clock lefts         ; 0 / 16 ( 0 % )            ;
+; Regional clock out bottoms   ; 0 / 16 ( 0 % )            ;
+; Regional clock out tops      ; 0 / 16 ( 0 % )            ;
+; Regional clock rights        ; 0 / 16 ( 0 % )            ;
+; Regional clocks              ; 0 / 16 ( 0 % )            ;
+; Spine buffers                ; 2 / 704 ( < 1 % )         ;
+; Spine clocks                 ; 4 / 1,056 ( < 1 % )       ;
+; Spine feedthroughs           ; 0 / 1,024 ( 0 % )         ;
++------------------------------+---------------------------+
+
+
++----------------+
+; Route Messages ;
++----------------+
+Info (20032): Parallel compilation is enabled and will use up to 2 processors
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+    Info: Processing started: Sun Feb  4 21:57:33 2024
+    Info: System process ID: 1925390
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off lab1 -c lab1
+Info: The application is running in 'DNI' mode.
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = lab1
+Info: Revision = lab1
+Info (22300): Design uses Placement Effort Multiplier = 1.0.
+Info (170193): Fitter routing operations beginning
+Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
+    Info (170200): Optimizations that may affect the design's timing were skipped
+Info (11888): Total time spent on timing analysis during Routing is 0.09 seconds.
+Info (16607): Fitter routing operations ending: elapsed time is 00:01:01
+
+
++------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary              ;
++-----------------+----------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
++-----------------+----------------------+-------------------+
+; clk             ; clk                  ; 34.0              ;
++-----------------+----------------------+-------------------+
+Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
+This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
+
+
++-----------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                   ;
++----------------------+----------------------+-------------------+
+; Source Register      ; Destination Register ; Delay Added in ns ;
++----------------------+----------------------+-------------------+
+; x_r7[6]~_Duplicate0  ; x_r8[6]              ; 0.298             ;
+; x_r3[1]~_Duplicate1  ; x_r4[1]~_Duplicate0  ; 0.244             ;
+; valid_Q5             ; valid_Q6             ; 0.244             ;
+; a4_out_r1[20]        ; y_Q[20]              ; 0.241             ;
+; valid_Q6             ; valid_Q7             ; 0.241             ;
+; x[12]                ; x_r1[12]             ; 0.232             ;
+; x_r4[5]~_Duplicate0  ; x_r5[5]~_Duplicate0  ; 0.232             ;
+; valid_Q8             ; valid_Q9             ; 0.231             ;
+; x_r4[7]~_Duplicate0  ; x_r5[7]~_Duplicate0  ; 0.231             ;
+; x[7]                 ; x_r1[7]              ; 0.228             ;
+; x_r6[7]~_Duplicate0  ; x_r7[7]~_Duplicate0  ; 0.228             ;
+; valid_Q9             ; valid_Q10            ; 0.228             ;
+; x[4]                 ; x_r1[4]              ; 0.225             ;
+; x_r6[13]~_Duplicate0 ; x_r7[13]~_Duplicate0 ; 0.225             ;
+; a4_out_r1[25]        ; y_Q[25]              ; 0.224             ;
+; x_r3[4]~_Duplicate0  ; x_r4[4]~_Duplicate0  ; 0.224             ;
+; x_r5[0]~_Duplicate0  ; x_r6[0]~_Duplicate0  ; 0.224             ;
+; a4_out_r1[22]        ; y_Q[22]              ; 0.221             ;
+; a4_out_r1[4]         ; y_Q[4]               ; 0.221             ;
+; x_r3[8]~_Duplicate0  ; x_r4[8]~_Duplicate0  ; 0.221             ;
+; valid_Q2             ; valid_Q3             ; 0.221             ;
+; a4_out_r1[29]        ; y_Q[29]              ; 0.218             ;
+; x_r3[12]~_Duplicate0 ; x_r4[12]~_Duplicate0 ; 0.218             ;
+; x_r5[2]~_Duplicate0  ; x_r6[2]~_Duplicate0  ; 0.218             ;
+; x[1]                 ; x_r1[1]              ; 0.218             ;
+; x[0]                 ; x_r1[0]              ; 0.218             ;
+; x_r4[4]~_Duplicate0  ; x_r5[4]~_Duplicate0  ; 0.218             ;
+; x_r3[5]~_Duplicate0  ; x_r4[5]~_Duplicate0  ; 0.218             ;
+; x_r3[7]~_Duplicate0  ; x_r4[7]~_Duplicate0  ; 0.218             ;
+; x[14]                ; x_r1[14]             ; 0.215             ;
+; valid_Q4             ; valid_Q5             ; 0.215             ;
+; x_r5[4]~_Duplicate0  ; x_r6[4]~_Duplicate0  ; 0.214             ;
+; x_r6[15]~_Duplicate0 ; x_r7[15]~_Duplicate0 ; 0.212             ;
+; x_r3[2]~_Duplicate1  ; x_r4[2]~_Duplicate0  ; 0.212             ;
+; a4_out_r1[30]        ; y_Q[30]              ; 0.212             ;
+; x[10]                ; x_r1[10]             ; 0.211             ;
+; a4_out_r1[10]        ; y_Q[10]              ; 0.211             ;
+; x_r4[8]~_Duplicate0  ; x_r5[8]~_Duplicate0  ; 0.211             ;
+; x[15]                ; x_r1[15]             ; 0.211             ;
+; a4_out_r1[24]        ; y_Q[24]              ; 0.208             ;
+; x_r6[14]~_Duplicate0 ; x_r7[14]~_Duplicate0 ; 0.208             ;
+; x_r2[11]~_Duplicate0 ; x_r3[11]~_Duplicate0 ; 0.208             ;
+; x_r6[0]~_Duplicate0  ; x_r7[0]~_Duplicate0  ; 0.208             ;
+; valid_Q3             ; valid_Q4             ; 0.208             ;
+; x[6]                 ; x_r1[6]              ; 0.205             ;
+; a4_out_r1[21]        ; y_Q[21]              ; 0.205             ;
+; x_r4[12]~_Duplicate0 ; x_r5[12]~_Duplicate0 ; 0.204             ;
+; a4_out_r1[0]         ; y_Q[0]               ; 0.204             ;
+; valid_Q7             ; valid_Q8             ; 0.204             ;
+; x[11]                ; x_r1[11]             ; 0.204             ;
+; x_r6[2]~_Duplicate0  ; x_r7[2]~_Duplicate0  ; 0.202             ;
+; x[13]                ; x_r1[13]             ; 0.202             ;
+; a4_out_r1[31]        ; y_Q[31]              ; 0.201             ;
+; valid_Q1             ; valid_Q2             ; 0.201             ;
+; x_r4[0]~_Duplicate0  ; x_r5[0]~_Duplicate0  ; 0.198             ;
+; x_r5[7]~_Duplicate0  ; x_r6[7]~_Duplicate0  ; 0.198             ;
+; a4_out_r1[14]        ; y_Q[14]              ; 0.195             ;
+; x_r2[9]~_Duplicate0  ; x_r3[9]~_Duplicate0  ; 0.192             ;
+; x[3]                 ; x_r1[3]              ; 0.192             ;
+; x_r2[7]~_Duplicate0  ; x_r3[7]~_Duplicate0  ; 0.192             ;
+; x_r5[3]~_Duplicate0  ; x_r6[3]~_Duplicate0  ; 0.191             ;
+; a4_out_r1[19]        ; y_Q[19]              ; 0.191             ;
+; x[2]                 ; x_r1[2]              ; 0.191             ;
+; x_r2[12]~_Duplicate0 ; x_r3[12]~_Duplicate0 ; 0.191             ;
+; x_r4[2]~_Duplicate0  ; x_r5[2]~_Duplicate0  ; 0.191             ;
+; x_r2[6]~_Duplicate0  ; x_r3[6]~_Duplicate0  ; 0.191             ;
+; x_r6[3]~_Duplicate0  ; x_r7[3]~_Duplicate0  ; 0.187             ;
+; x_r4[1]~_Duplicate0  ; x_r5[1]~_Duplicate0  ; 0.187             ;
+; a4_out_r1[5]         ; y_Q[5]               ; 0.185             ;
+; x[5]                 ; x_r1[5]              ; 0.185             ;
+; x[9]                 ; x_r1[9]              ; 0.185             ;
+; x_r6[4]~_Duplicate0  ; x_r7[4]~_Duplicate0  ; 0.185             ;
+; x_r2[5]~_Duplicate0  ; x_r3[5]~_Duplicate0  ; 0.185             ;
+; a4_out_r1[28]        ; y_Q[28]              ; 0.182             ;
+; a4_out_r1[7]         ; y_Q[7]               ; 0.181             ;
+; a4_out_r1[8]         ; y_Q[8]               ; 0.177             ;
+; a4_out_r1[9]         ; y_Q[9]               ; 0.174             ;
+; x_r5[15]~_Duplicate0 ; x_r6[15]~_Duplicate0 ; 0.167             ;
+; x_r5[9]~_Duplicate0  ; x_r6[9]~_Duplicate0  ; 0.164             ;
+; a4_out_r1[23]        ; y_Q[23]              ; 0.158             ;
+; x_r5[1]~_Duplicate0  ; x_r6[1]~_Duplicate0  ; 0.145             ;
+; x_r5[11]~_Duplicate0 ; x_r6[11]~_Duplicate0 ; 0.141             ;
+; valid_Q12            ; valid_Q13            ; 0.141             ;
+; x_r3[13]~_Duplicate0 ; x_r4[13]~_Duplicate0 ; 0.138             ;
+; x_r3[6]~_Duplicate0  ; x_r4[6]~_Duplicate0  ; 0.138             ;
+; x_r5[13]~_Duplicate0 ; x_r6[13]~_Duplicate0 ; 0.135             ;
+; x_r3[15]~_Duplicate0 ; x_r4[15]~_Duplicate0 ; 0.131             ;
+; a4_out_r1[6]         ; y_Q[6]               ; 0.124             ;
+; x_r5[12]~_Duplicate0 ; x_r6[12]~_Duplicate0 ; 0.124             ;
+; a4_out_r1[27]        ; y_Q[27]              ; 0.121             ;
+; x_r3[10]~_Duplicate0 ; x_r4[10]~_Duplicate0 ; 0.121             ;
+; x_r5[8]~_Duplicate0  ; x_r6[8]~_Duplicate0  ; 0.121             ;
+; x_r3[0]~_Duplicate1  ; x_r4[0]~_Duplicate0  ; 0.121             ;
+; x_r7[0]~_Duplicate0  ; x_r8[0]              ; 0.117             ;
+; a4_out_r1[13]        ; y_Q[13]              ; 0.115             ;
+; valid_Q10            ; valid_Q11            ; 0.114             ;
+; x_r5[5]~_Duplicate0  ; x_r6[5]~_Duplicate0  ; 0.114             ;
+; a4_out_r1[11]        ; y_Q[11]              ; 0.114             ;
+; x_r3[11]~_Duplicate0 ; x_r4[11]~_Duplicate0 ; 0.111             ;
+; a4_out_r1[16]        ; y_Q[16]              ; 0.111             ;
++----------------------+----------------------+-------------------+
+Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
+
+

@@ -1,0 +1,5 @@
+{ "Info" "IDMS_INIT_MSG_DB" "" "Initialized Quartus Message Database" {  } {  } 0 21958 "Initialized Quartus Message Database" 0 0 "Design Software" 0 -1 0 ""}
+{ "Info" "0" "" "Analyzing source files" {  } {  } 0 0 "Analyzing source files" 0 0 "0" 0 0 1706044864083 ""}
+{ "Info" "0" "" "Elaborating from top-level entity \"lab1\"" {  } {  } 0 0 "Elaborating from top-level entity \"lab1\"" 0 0 "0" 0 0 1706044865702 ""}
+{ "Info" "0" "" "Found 5 design entities" {  } {  } 0 0 "Found 5 design entities" 0 0 "0" 0 0 1706044866388 ""}
+{ "Info" "0" "" "There are 11 partitions after elaboration." {  } {  } 0 0 "There are 11 partitions after elaboration." 0 0 "0" 0 0 1706044866442 ""}

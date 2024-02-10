@@ -1,0 +1,90 @@
+# //  Questa Intel FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+ls
+# dni
+# graph.gnu
+# lab1_assignment_defaults.qdf
+# lab1.nuiqu.tcl.history
+# lab1_pipe.v
+# lab1.qpf
+# lab1.qsf
+# lab1.qsf.backup
+# lab1_save_color.json
+# lab1_save_highlight.json
+# lab1_shared.v
+# lab1_tb_pipe.v
+# lab1_tb_shared.v
+# lab1_tb.v
+# lab1_user_runs_default_run_elaborated_default_save_view.txt
+# lab1.v
+# output_files
+# qdb
+# SDC1.sdc
+# transcript
+vlib work_shared
+vlog lab1_shared.v
+# Questa Intel FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 17:26:51 on Feb 02,2024
+# vlog -reportprogress 300 lab1_shared.v 
+# -- Compiling module lab1
+# ** Error: lab1_shared.v(81): (vlog-2730) Undefined variable: 'IDLE'.
+# ** Error: lab1_shared.v(87): (vlog-13282) 'IDLE' already declared in this scope.
+# -- Compiling module mult16x16
+# -- Compiling module mult32x16
+# -- Compiling module addr32p16
+# -- Compiling module mux
+# -- Compiling module mux2
+# End time: 17:26:51 on Feb 02,2024, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# /packages/apps/fpga/Quartus_Pro/23.4/questa_fe/linux_x86_64/vlog failed.
+vlog lab1_shared.v
+# Questa Intel FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 17:30:08 on Feb 02,2024
+# vlog -reportprogress 300 lab1_shared.v 
+# -- Compiling module lab1
+# -- Compiling module mult16x16
+# -- Compiling module mult32x16
+# -- Compiling module addr32p16
+# -- Compiling module mux
+# -- Compiling module mux2
+# 
+# Top level modules:
+# 	lab1
+# 	mult16x16
+# End time: 17:30:09 on Feb 02,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog lab1_tb.v
+# Questa Intel FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 17:31:00 on Feb 02,2024
+# vlog -reportprogress 300 lab1_tb.v 
+# -- Compiling module lab1_tb
+# 
+# Top level modules:
+# 	lab1_tb
+# End time: 17:31:00 on Feb 02,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work_shared.lab1_tb
+# vsim work_shared.lab1_tb 
+# Start time: 17:31:27 on Feb 02,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: (vopt-13130) Failed to find design unit 'lab1_tb'.
+#         Searched libraries:
+#             work
+#             work_shared
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# End time: 17:31:29 on Feb 02,2024, Elapsed time: 0:00:02
+# Errors: 1, Warnings: 0

@@ -1,0 +1,72 @@
+Fitter Finalize Stage Report for lab1
+Sun Feb  4 17:03:30 2024
+Quartus Prime Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter HSLP Summary
+  3. Finalize Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++----------------------------------------------------------------------------------+
+; Fitter HSLP Summary                                                              ;
++--------------------------------------------------------+-----------------+-------+
+; Resource                                               ; Usage           ; %     ;
++--------------------------------------------------------+-----------------+-------+
+;                                                        ;                 ;       ;
+; Programmable power technology high-speed tiles         ; 23 / 18,244     ; < 1 % ;
+; Programmable power technology low-power tiles          ; 18,221 / 18,244 ; 100 % ;
+;     -- low-power tiles that are used by the design     ; 59 / 18,221     ; < 1 % ;
+;     -- unused tiles (low-power)                        ; 18,162 / 18,221 ; 100 % ;
+;                                                        ;                 ;       ;
+; Programmable power technology high-speed LAB tiles     ; 20 / 13,898     ; < 1 % ;
+; Programmable power technology low-power LAB tiles      ; 13,878 / 13,898 ; 100 % ;
+;     -- low-power LAB tiles that are used by the design ; 59 / 13,878     ; < 1 % ;
+;     -- unused LAB tiles (low-power)                    ; 13,819 / 13,878 ; 100 % ;
+;                                                        ;                 ;       ;
++--------------------------------------------------------+-----------------+-------+
+
+
++-------------------+
+; Finalize Messages ;
++-------------------+
+Info (20032): Parallel compilation is enabled and will use up to 2 processors
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+    Info: Processing started: Sun Feb  4 16:58:36 2024
+    Info: System process ID: 1500101
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off lab1 -c lab1
+Info: The application is running in 'DNI' mode.
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = lab1
+Info: Revision = lab1
+Info (22300): Design uses Placement Effort Multiplier = 1.0.
+Info (11888): Total time spent on timing analysis during Post-Routing is 0.00 seconds.
+Info (16557): Fitter post-fit operations ending: elapsed time is 00:00:49
+
+

@@ -1,0 +1,505 @@
+Synthesis report
+Sun Feb  4 21:57:30 2024
+Quartus Prime Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Synthesis Summary
+  2. Synthesis Settings
+  3. Synthesis Source Files Read
+  4. Synthesis Partition Summary
+  5. Parameter Settings for Top-Level Entity
+  6. Partition "root_partition" Resource Utilization by Entity
+  7. Registers Removed During Synthesis
+  8. General Register Statistics for Partition "root_partition"
+  9. Multiplier Implementation Report
+ 10. Preserve for Debug Assignments for Partition "root_partition"
+ 11. Post-Synthesis Netlist Statistics for Partition "root_partition"
+ 12. Synthesis Resource Usage Summary for Partition "root_partition"
+ 13. Synthesis DSP Block Usage Summary for Partition "root_partition"
+ 14. Top Causes of Logic Optimized Away During Sweep
+ 15. Warnings for lab1.v
+ 16. Analysis & Elaboration Messages
+ 17. Logic Synthesis Messages
+ 18. Synthesis Messages
+
+
+
++---------------------------------------------------------------+
+; Synthesis Summary                                             ;
++-----------------------+---------------------------------------+
+; Synthesis Status      ; Successful - Sun Feb  4 21:57:28 2024 ;
+; Revision Name         ; lab1                                  ;
+; Top-level Entity Name ; lab1                                  ;
+; Family                ; Arria 10                              ;
++-----------------------+---------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis Settings                                                                                                                  ;
++---------------------------------------------------------------------------------+-------------------------+-------------------------+
+; Option                                                                          ; Setting                 ; Default Value           ;
++---------------------------------------------------------------------------------+-------------------------+-------------------------+
+; Device                                                                          ; 10AX115N2F45I1SG        ;                         ;
+; Top-level entity name                                                           ; lab1                    ; lab1                    ;
+; Family name                                                                     ; Arria 10                ; Cyclone 10 GX           ;
+; Maximum processors allowed for parallel compilation                             ; 2                       ;                         ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                      ; On                      ;
+; Enable compact report table                                                     ; Off                     ; Off                     ;
+; Design Assistant include IP blocks                                              ; Off                     ; Off                     ;
+; High fanout net threshold for RAM inference                                     ; 15                      ; 15                      ;
+; Design Assistant limit on reported violations per rule                          ; 5000                    ; 5000                    ;
+; Optimization Mode                                                               ; Balanced                ; Balanced                ;
+; Allow Register Merging                                                          ; On                      ; On                      ;
+; Allow Register Duplication                                                      ; On                      ; On                      ;
+; Allow Register Retiming                                                         ; On                      ; On                      ;
+; Allow RAM Retiming                                                              ; Off                     ; Off                     ;
+; Allow DSP Retiming                                                              ; Off                     ; Off                     ;
+; Restructure Multiplexers                                                        ; Auto                    ; Auto                    ;
+; Waive gated clock synchronizer check                                            ; On                      ; On                      ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                     ; Off                     ;
+; Preserve fewer node names                                                       ; On                      ; On                      ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                  ; Enable                  ;
+; Verilog Version                                                                 ; Verilog_2001            ; Verilog_2001            ;
+; VHDL Version                                                                    ; VHDL_1993               ; VHDL_1993               ;
+; State Machine Processing                                                        ; Auto                    ; Auto                    ;
+; Safe State Machine                                                              ; Auto                    ; Auto                    ;
+; Iteration limit for constant Verilog loops                                      ; 5000                    ; 5000                    ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                     ; 250                     ;
+; Infer RAMs from Raw Logic                                                       ; On                      ; On                      ;
+; DSP Block Balancing                                                             ; Auto                    ; Auto                    ;
+; NOT Gate Push-Back                                                              ; On                      ; On                      ;
+; Power-Up Don't Care                                                             ; On                      ; On                      ;
+; Remove Redundant Logic Cells                                                    ; Off                     ; Off                     ;
+; Remove Duplicate Registers                                                      ; On                      ; On                      ;
+; Ignore GLOBAL Buffers                                                           ; Off                     ; Off                     ;
+; Ignore LCELL Buffers                                                            ; Off                     ; Off                     ;
+; Ignore SOFT Buffers                                                             ; On                      ; On                      ;
+; Optimization Technique                                                          ; Balanced                ; Balanced                ;
+; Auto Open-Drain Pins                                                            ; On                      ; On                      ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                     ; Off                     ;
+; Auto ROM Replacement                                                            ; On                      ; On                      ;
+; Auto RAM Replacement                                                            ; On                      ; On                      ;
+; Auto DSP Block Replacement                                                      ; On                      ; On                      ;
+; Auto Shift Register Replacement                                                 ; Auto                    ; Auto                    ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                    ; Auto                    ;
+; Auto Clock Enable Replacement                                                   ; On                      ; On                      ;
+; Strict RAM Replacement                                                          ; Off                     ; Off                     ;
+; Allow Synchronous Control Signals                                               ; On                      ; On                      ;
+; Force Use of Synchronous Clear Signals                                          ; Off                     ; Off                     ;
+; Auto Resource Sharing                                                           ; Off                     ; Off                     ;
+; Allow Any RAM Size For Recognition                                              ; Off                     ; Off                     ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                     ; Off                     ;
+; Ignore translate_off and synthesis_off directives                               ; Off                     ; Off                     ;
+; Timing-Driven Synthesis                                                         ; On                      ; On                      ;
+; Report Propagation of Constraints                                               ; On                      ; On                      ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                     ; Off                     ;
+; Synchronization Register Chain Length                                           ; 3                       ; 3                       ;
+; Power Optimization During Synthesis                                             ; Normal compilation      ; Normal compilation      ;
+; HDL message level                                                               ; Level2                  ; Level2                  ;
+; Number of Protected Registers Reported in Synthesis Report                      ; 100                     ; 100                     ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                    ; 5000                    ;
+; Number of Optimized Away Hierarchies Reported in Synthesis Report               ; 100                     ; 100                     ;
+; Group Identical Hierarchies in Optimized Away Hierarchies Report                ; On                      ; On                      ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                    ; 5000                    ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                     ; 100                     ;
+; Clock MUX Protection                                                            ; On                      ; On                      ;
+; Auto Gated Clock Conversion                                                     ; Off                     ; Off                     ;
+; Block Design Naming                                                             ; Auto                    ; Auto                    ;
+; SDC constraint protection                                                       ; Off                     ; Off                     ;
+; Optimization and Constraint Precedence                                          ; Prioritize Optimization ; Prioritize Optimization ;
+; Synthesis Effort                                                                ; Auto                    ; Auto                    ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                      ; On                      ;
+; Analysis & Synthesis Message Level                                              ; Medium                  ; Medium                  ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                    ; Auto                    ;
+; Resource Aware Inference For Block RAM                                          ; On                      ; On                      ;
+; Automatic Parallel Synthesis                                                    ; On                      ; On                      ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                     ; Off                     ;
+; Disable DSP Negate Inferencing                                                  ; Off                     ; Off                     ;
+; Report Parameter Settings                                                       ; On                      ; On                      ;
+; Report Parameter Settings to ASCII                                              ; On                      ; On                      ;
+; Report Source Assignments                                                       ; On                      ; On                      ;
+; Report Source Assignments to ASCII                                              ; On                      ; On                      ;
+; Report Resource Utilization by Entity to ASCII                                  ; On                      ; On                      ;
+; Size of the Latch Report                                                        ; 100                     ; 100                     ;
+; Enable VHDL static assertion support                                            ; Off                     ; Off                     ;
+; Enable SystemVerilog static assertion support                                   ; Off                     ; Off                     ;
+; Enable State Machines Inference                                                 ; On                      ; On                      ;
+; Allow RAMs Inferred In Generate-For Loop For Verilog                            ; Off                     ; Off                     ;
+; Enable formal verification support during compilation                           ; Off                     ; Off                     ;
+; Size of the PR Initial Conditions Report                                        ; 100                     ; 100                     ;
+; Number of Registers with Ignored Power-Up Settings Reported in Synthesis Report ; 500                     ; 500                     ;
+; Report PR Initial Values as Errors                                              ; Off                     ; Off                     ;
+; Fractal Synthesis                                                               ; Off                     ; Off                     ;
+; Synthesis Available Resource Multiplier                                         ; 1                       ; 1                       ;
+; Message Level for Unconnected Output Ports                                      ; Warning                 ; Warning                 ;
+; Pack Barrelshifters into Carry Chains for Better Area                           ; Auto                    ; Auto                    ;
+; Initialize Verilog enums to X                                                   ; Off                     ; Off                     ;
+; Enable dynamic report                                                           ; Off                     ; Off                     ;
+; Show Collapsible Rows in Ascii Report for Warning Summary Reports               ; On                      ; On                      ;
+; Enable preserve for debug assignments                                           ; Off                     ; Off                     ;
++---------------------------------------------------------------------------------+-------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis Source Files Read                                                                                                                                                                                                             ;
++----------------------------------+-----------------------------------------------------------------------------+-----------------------------------------------+---------+-----------+---------------+----------------------------------+
+; File Name with User-Entered Path ; File Type                                                                   ; File Name with Absolute Path                  ; Library ; IP Source ; Include Files ; MD5                              ;
++----------------------------------+-----------------------------------------------------------------------------+-----------------------------------------------+---------+-----------+---------------+----------------------------------+
+; SDC1.sdc                         ; User-Specified SDC File (Read by the Timing Analyzer at each fitter stage)  ; /home/sfberrio/repos/lab1/srcs/pipe/SDC1.sdc  ;         ;           ;               ; d6edd8afd07c83cdd4601f8ea488b164 ;
+; lab1_tb.v                        ; User-Specified Verilog HDL File                                             ; /home/sfberrio/repos/lab1/srcs/pipe/lab1_tb.v ;         ;           ;               ; 9eb020b8b5509a467a2dd567a4a884da ;
+; lab1.v                           ; User-Specified Verilog HDL File                                             ; /home/sfberrio/repos/lab1/srcs/pipe/lab1.v    ;         ;           ;               ; 13e66e4fbbabc5f7a793b8da689be0de ;
++----------------------------------+-----------------------------------------------------------------------------+-----------------------------------------------+---------+-----------+---------------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Synthesis Partition Summary                                                                ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+; Partition Name ; Hierarchy Path ; Type    ; Preservation ; Empty ; Partition Database File ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+; root_partition ; |              ; Default ;              ;       ;                         ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+
+
++-----------------------------------------------------+
+; Parameter Settings for Top-Level Entity             ;
++----------------+------------------+-----------------+
+; Parameter Name ; Value            ; Type            ;
++----------------+------------------+-----------------+
+; A0             ; 0100000000000000 ; Unsigned Binary ;
+; A1             ; 0100000000000000 ; Unsigned Binary ;
+; A2             ; 0010000000000000 ; Unsigned Binary ;
+; A3             ; 0000101010101010 ; Unsigned Binary ;
+; A4             ; 0000001010101010 ; Unsigned Binary ;
+; A5             ; 0000000010001000 ; Unsigned Binary ;
+; WIDTHIN        ; 16               ; Signed Integer  ;
+; WIDTHOUT       ; 32               ; Signed Integer  ;
++----------------+------------------+-----------------+
+All Instances:
+<top>
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Partition "root_partition" Resource Utilization by Entity                                                                                                                                                   ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+-----------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; IOPLLs ; Max Depth ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+-----------+---------------------+-------------+--------------+
+; |                          ; 182 (2)             ; 560 (368)                 ; 0                 ; 8          ; 54   ; 0            ; 0 (0)  ; 4.7 (2.6) ; |                   ; lab1        ; altera_work  ;
+;    |Addr0|                 ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 1.8 (1.8) ; Addr0               ; addr32p16   ; altera_work  ;
+;    |Addr1|                 ; 20 (20)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 4.7 (4.7) ; Addr1               ; addr32p16   ; altera_work  ;
+;    |Addr2|                 ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 4.7 (4.7) ; Addr2               ; addr32p16   ; altera_work  ;
+;    |Addr3|                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 4.7 (4.7) ; Addr3               ; addr32p16   ; altera_work  ;
+;    |Addr4|                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 4.7 (4.7) ; Addr4               ; addr32p16   ; altera_work  ;
+;    |Mult0|                 ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; 0 (0)  ; 2.6 (2.6) ; Mult0               ; mult16x16   ; altera_work  ;
+;    |Mult1|                 ; 28 (28)             ; 48 (48)                   ; 0                 ; 2          ; 0    ; 0            ; 0 (0)  ; 4.7 (4.7) ; Mult1               ; mult32x16   ; altera_work  ;
+;    |Mult2|                 ; 28 (28)             ; 48 (48)                   ; 0                 ; 2          ; 0    ; 0            ; 0 (0)  ; 4.7 (4.7) ; Mult2               ; mult32x16   ; altera_work  ;
+;    |Mult3|                 ; 28 (28)             ; 48 (48)                   ; 0                 ; 2          ; 0    ; 0            ; 0 (0)  ; 4.7 (4.7) ; Mult3               ; mult32x16   ; altera_work  ;
+;    |Mult4|                 ; 28 (28)             ; 48 (48)                   ; 0                 ; 2          ; 0    ; 0            ; 0 (0)  ; 4.7 (4.7) ; Mult4               ; mult32x16   ; altera_work  ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------+-----------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; Mult1|mult_0~mult_l__2                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][17]                 ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][16]                 ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][15]                 ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][14]                 ; Lost fanout                            ;
+; Mult2|mult_0~mult_l__2                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][17]                 ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][16]                 ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][15]                 ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][14]                 ; Lost fanout                            ;
+; Mult3|mult_0~mult_l__2                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][17]                 ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][16]                 ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][15]                 ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][14]                 ; Lost fanout                            ;
+; Mult4|mult_0~mult_l__2                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][17]                 ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][16]                 ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][15]                 ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][14]                 ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][0]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][1]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][2]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][3]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][4]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][5]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][6]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][7]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][8]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][9]                  ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][10]                 ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][11]                 ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][12]                 ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][13]                 ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][0]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][1]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][2]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][3]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][4]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][5]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][6]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][7]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][8]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][9]                  ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][10]                 ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][11]                 ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][12]                 ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][13]                 ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][0]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][1]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][2]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][3]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][4]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][5]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][6]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][7]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][8]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][9]                  ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][10]                 ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][11]                 ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][12]                 ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][13]                 ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][0]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][1]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][2]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][3]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][4]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][5]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][6]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][7]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][8]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][9]                  ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][10]                 ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][11]                 ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][12]                 ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][13]                 ; Lost fanout                            ;
+; m0_out_r1[21..28]                       ; Stuck at GND due to stuck port data_in ;
+; a0_out_r1[22..31]                       ; Stuck at GND due to stuck port data_in ;
+; Mult4|mult_0~_pl[0][28]_1               ; Lost fanout                            ;
+; Mult4|mult_0~_pl[0][29]_1               ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][28]_1               ; Lost fanout                            ;
+; Mult3|mult_0~_pl[0][29]_1               ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][28]_1               ; Lost fanout                            ;
+; Mult2|mult_0~_pl[0][29]_1               ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][28]_1               ; Lost fanout                            ;
+; Mult1|mult_0~_pl[0][29]_1               ; Lost fanout                            ;
+; m0_out_r1[3]                            ; Merged with x_r2[3]                    ;
+; m0_out_r1[2]                            ; Merged with x_r2[2]                    ;
+; m0_out_r1[1]                            ; Merged with x_r2[1]                    ;
+; m0_out_r1[0]                            ; Merged with x_r2[0]                    ;
+; a0_out_r1[3]                            ; Merged with x_r3[3]                    ;
+; a0_out_r1[2]                            ; Merged with x_r3[2]                    ;
+; a0_out_r1[1]                            ; Merged with x_r3[1]                    ;
+; a0_out_r1[0]                            ; Merged with x_r3[0]                    ;
+; Total Number of Removed Registers = 110 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------+
+; General Register Statistics for Partition "root_partition" ;
++----------------------------------------------+-------------+
+; Statistic                                    ; Value       ;
++----------------------------------------------+-------------+
+; Total registers                              ; 560         ;
+; Number of registers using Synchronous Clear  ; 0           ;
+; Number of registers using Synchronous Load   ; 0           ;
+; Number of registers using Asynchronous Clear ; 560         ;
+; Number of registers using Asynchronous Load  ; 0           ;
+; Number of registers using Clock Enable       ; 560         ;
+; Number of registers using Preset             ; 0           ;
++----------------------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplier Implementation Report                                                                                                                 ;
++------------------------+---------------+---------------+----------------+-------------------------------------+----------------------------------+
+; Multiplier Name        ; Input A Width ; Input B Width ; Output O Width ; Target                              ; Reason                           ;
++------------------------+---------------+---------------+----------------+-------------------------------------+----------------------------------+
+; Mult4|mult_0           ; 32            ; 16            ; 48             ; decomposed into smaller multipliers ; too large for direct DSP mapping ;
+; Mult4|mult_0~mult_l_   ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
+; Mult4|mult_0~mult_l__1 ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
+; Mult3|mult_0           ; 32            ; 16            ; 48             ; decomposed into smaller multipliers ; too large for direct DSP mapping ;
+; Mult3|mult_0~mult_l_   ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
+; Mult3|mult_0~mult_l__1 ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
+; Mult2|mult_0           ; 32            ; 16            ; 48             ; decomposed into smaller multipliers ; too large for direct DSP mapping ;
+; Mult2|mult_0~mult_l_   ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
+; Mult2|mult_0~mult_l__1 ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
+; Mult1|mult_0           ; 32            ; 16            ; 48             ; decomposed into smaller multipliers ; too large for direct DSP mapping ;
+; Mult1|mult_0~mult_l_   ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
+; Mult1|mult_0~mult_l__1 ; 0             ; 0             ; 0              ; dsp                                 ; default                          ;
++------------------------+---------------+---------------+----------------+-------------------------------------+----------------------------------+
+
+
++---------------------------------------------------------------+
+; Preserve for Debug Assignments for Partition "root_partition" ;
++------+--------+-----------------------------------------------+
+; Name ; Status ; Notes                                         ;
++------+--------+-----------------------------------------------+
+Notes: Table created because there is an active PRESERVE_FOR_DEBUG_ENABLE in the project, even though there are no tagged names within the partition.
+
+
++------------------------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Partition "root_partition" ;
++------------------------+-----------------------------------------+
+; Type                   ; Count                                   ;
++------------------------+-----------------------------------------+
+; boundary_port          ; 54                                      ;
+; twentynm_ff            ; 560                                     ;
+;     ENA CLR            ; 560                                     ;
+; twentynm_lcell_comb    ; 182                                     ;
+;     arith              ; 180                                     ;
+;         0 data inputs  ; 2                                       ;
+;         1 data inputs  ; 101                                     ;
+;         2 data inputs  ; 77                                      ;
+;     normal             ; 2                                       ;
+;         1 data inputs  ; 1                                       ;
+;         2 data inputs  ; 1                                       ;
+; twentynm_mac           ; 8                                       ;
+;                        ;                                         ;
+; Number of carry chains ; 10                                      ;
+; Max carry chain length ; 28                                      ;
+;                        ;                                         ;
+; Max LUT depth          ; 4.70                                    ;
+; Average LUT depth      ; 1.75                                    ;
++------------------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Synthesis Resource Usage Summary for Partition "root_partition" ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimate of Logic utilization (ALMs needed) ; 288               ;
+;                                             ;                   ;
+; Combinational ALUT usage for logic          ; 182               ;
+;     -- 7 input functions                    ; 0                 ;
+;     -- 6 input functions                    ; 0                 ;
+;     -- 5 input functions                    ; 0                 ;
+;     -- 4 input functions                    ; 0                 ;
+;     -- <=3 input functions                  ; 182               ;
+;                                             ;                   ;
+; Dedicated logic registers                   ; 560               ;
+;                                             ;                   ;
+; I/O pins                                    ; 54                ;
+;                                             ;                   ;
+; Total DSP Blocks                            ; 8                 ;
+;     -- [A] Total Fixed Point DSP Blocks     ; 8                 ;
+;     -- [B] Total Floating Point DSP Blocks  ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; i_ready           ;
+; Maximum fan-out                             ; 562               ;
+; Total fan-out                               ; 2944              ;
+; Average fan-out                             ; 3.66              ;
++---------------------------------------------+-------------------+
+
+
++------------------------------------------------------------------+
+; Synthesis DSP Block Usage Summary for Partition "root_partition" ;
++---------------------------------+--------------------------------+
+; Statistic                       ; Number Used                    ;
++---------------------------------+--------------------------------+
+; Two Independent 18x18           ; 8                              ;
+; Total number of DSP blocks      ; 8                              ;
+;                                 ;                                ;
+; Fixed Point Unsigned Multiplier ; 8                              ;
++---------------------------------+--------------------------------+
+Note: DSP block merging and most register packing occurs during the fitter.
+
+
+Top root causes of logic optimization that have been identified during sweep. Go to the " Root Causes Tab " in the " Sweep Hints Viewer " tool in the " RTL Analyzer " for more details and filtering options.
++-------------------------------------------------------------------------+
+; Top Causes of Logic Optimized Away During Sweep                         ;
++------------------+------------------+-------------+---------------------+
+; Root Object Path ; Root Object Type ; Root Reason ; Swept Objects Count ;
++------------------+------------------+-------------+---------------------+
+; Mult0|o_res[29]  ; OUTPUT_PORT      ; stuck at 0  ; 3                   ;
+; Mult0|o_res[30]  ; OUTPUT_PORT      ; stuck at 0  ; 3                   ;
+; Mult0|o_res[31]  ; OUTPUT_PORT      ; stuck at 0  ; 3                   ;
+; Addr0|i_datab[0] ; INPUT_INST_PORT  ; stuck at 0  ; 1                   ;
+; Addr0|i_datab[1] ; INPUT_INST_PORT  ; stuck at 1  ; 1                   ;
+; Addr0|i_datab[2] ; INPUT_INST_PORT  ; stuck at 0  ; 1                   ;
+; Addr0|i_datab[3] ; INPUT_INST_PORT  ; stuck at 1  ; 1                   ;
+; Addr0|i_datab[4] ; INPUT_INST_PORT  ; stuck at 0  ; 1                   ;
+; Addr0|i_datab[5] ; INPUT_INST_PORT  ; stuck at 1  ; 1                   ;
+; Addr0|i_datab[6] ; INPUT_INST_PORT  ; stuck at 0  ; 1                   ;
++------------------+------------------+-------------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Warnings for lab1.v                                                                                                                      ;
++------------+----------+-------+----------------------------------------------------------------------------------------------------------+
+; Message ID ; Severity ; Count ; Sample Warning                                                                                           ;
++------------+----------+-------+----------------------------------------------------------------------------------------------------------+
+; 13469      ; Warning  ; 1     ; Verilog HDL assignment warning at lab1.v(159): truncated value with size 32 to match size of target (16) ;
++------------+----------+-------+----------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Synthesis
+    Info: Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+    Info: Processing started: Sun Feb  4 21:57:14 2024
+    Info: System process ID: 1925365
+Info: Command: quartus_syn --dni --read_settings_files=on --write_settings_files=off lab1 -c lab1
+Info: The application is running in 'DNI' mode.
+Info: qis_default_flow_script.tcl version: #3
+Info: Initializing Synthesis in DNI mode...
+Info: Project = "lab1"
+Info: Revision = "lab1"
+Info (21958): Initialized Quartus Message Database
+Info: Analyzing source files
+Info: Elaborating from top-level entity "lab1"
+Warning (13469): Verilog HDL assignment warning at lab1.v(159): truncated value with size 32 to match size of target (16) File: /home/sfberrio/repos/lab1/srcs/pipe/lab1.v Line: 159
+Info: Found 5 design entities
+Info: There are 11 partitions after elaboration.
+
+
++--------------------------+
+; Logic Synthesis Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Synthesis
+    Info: Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+    Info: Processing started: Sun Feb  4 21:57:14 2024
+    Info: System process ID: 1925365
+Info: Command: quartus_syn --dni --read_settings_files=on --write_settings_files=off lab1 -c lab1
+Info: The application is running in 'DNI' mode.
+Info: qis_default_flow_script.tcl version: #3
+Info: Initializing Synthesis in DNI mode...
+Info: Project = "lab1"
+Info: Revision = "lab1"
+Info: Synthesizing partition "root_partition"
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 84 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 665 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 20 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21061): Implemented 603 logic cells
+    Info (21062): Implemented 8 DSP elements
+Info: Successfully synthesized partition
+Info: Saving post-synthesis snapshots for 1 partition(s)
+Info: Quartus Prime Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 1528 megabytes
+    Info: Processing ended: Sun Feb  4 21:57:30 2024
+    Info: Elapsed time: 00:00:16
+    Info: System process ID: 1925365
+
+
++--------------------+
+; Synthesis Messages ;
++--------------------+
+Messages appear in 'Analysis & Elaboration Messages' and 'Logic Synthesis Messages'
+
+

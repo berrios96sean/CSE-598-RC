@@ -1,0 +1,112 @@
+Fitter Route Stage Report for lab1
+Thu Jan 25 19:40:41 2024
+Quartus Prime Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Delay Chain Summary
+  3. Routing Usage Summary
+  4. Route Messages
+  5. Estimated Delay Added for Hold Timing Summary
+  6. Estimated Delay Added for Hold Timing Details
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Delay Chain Summary                                                                                                                                   ;
++------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; Name ; Pin Type ; Input Delay Chain 0 ; Output Delay Chain ; OE Delay Chain ; IO_12_LANE Input Data Delay Chain ; IO_12_LANE Input Strobe Delay Chain ;
++------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; clk  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
++------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+
+
++--------------------------------------------------------+
+; Routing Usage Summary                                  ;
++------------------------------+-------------------------+
+; Routing Resource Type        ; Usage                   ;
++------------------------------+-------------------------+
+; Block interconnects          ; 487 / 664,374 ( < 1 % ) ;
+; C27 interconnects            ; 0 / 12,769 ( 0 % )      ;
+; C4 interconnects             ; 281 / 514,392 ( < 1 % ) ;
+; Direct links                 ; 75 / 664,374 ( < 1 % )  ;
+; Global clocks                ; 1 / 32 ( 3 % )          ;
+; Periphery clocks             ; 0 / 410 ( 0 % )         ;
+; R3 interconnects             ; 171 / 246,936 ( < 1 % ) ;
+; R32 interconnects            ; 0 / 28,257 ( 0 % )      ;
+; R32/C27 interconnect drivers ; 0 / 74,920 ( 0 % )      ;
+; R6 interconnects             ; 215 / 527,108 ( < 1 % ) ;
+; Regional clock lefts         ; 0 / 8 ( 0 % )           ;
+; Regional clock out bottoms   ; 0 / 8 ( 0 % )           ;
+; Regional clock out tops      ; 0 / 8 ( 0 % )           ;
+; Regional clock rights        ; 0 / 8 ( 0 % )           ;
+; Regional clocks              ; 0 / 8 ( 0 % )           ;
+; Spine buffers                ; 1 / 220 ( < 1 % )       ;
+; Spine clocks                 ; 1 / 330 ( < 1 % )       ;
+; Spine feedthroughs           ; 0 / 224 ( 0 % )         ;
++------------------------------+-------------------------+
+
+
++----------------+
+; Route Messages ;
++----------------+
+Info (20032): Parallel compilation is enabled and will use up to 2 processors
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+    Info: Processing started: Thu Jan 25 19:39:25 2024
+    Info: System process ID: 2749389
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off lab1 -c lab1
+Info: The application is running in 'DNI' mode.
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = lab1
+Info: Revision = lab1
+Info (22300): Design uses Placement Effort Multiplier = 1.0.
+Info (170193): Fitter routing operations beginning
+Info (170202): The Fitter performed an Auto Fit compilation.  No optimizations were skipped because the design's timing and routability requirements required full optimization.
+Info (11888): Total time spent on timing analysis during Routing is 0.11 seconds.
+Info (16607): Fitter routing operations ending: elapsed time is 00:00:22
+
+
++------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary              ;
++-----------------+----------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
++-----------------+----------------------+-------------------+
+Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
+This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
+
+
++------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details              ;
++-----------------+----------------------+-------------------+
+; Source Register ; Destination Register ; Delay Added in ns ;
++-----------------+----------------------+-------------------+
+; valid_Q1        ; valid_Q2             ; 0.072             ;
++-----------------+----------------------+-------------------+
+Note: This table only shows the top 1 path(s) that have the largest delay added for hold.
+
+

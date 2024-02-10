@@ -1,0 +1,19 @@
+Fitter Status : Successful - Sun Feb  4 17:03:31 2024
+Quartus Prime Version : 23.4.0 Build 79 11/22/2023 SC Pro Edition
+Revision Name : lab1
+Top-level Entity Name : lab1
+Family : Arria 10
+Device : 10AX115N2F45I1SG
+Timing Models : Final
+Power Models : Final
+Device Status : Final
+Logic utilization (in ALMs) : 643 / 427,200 ( < 1 % )
+Total registers : 1064
+Total pins : 1 / 992 ( < 1 % )
+Total virtual pins : 53
+Total block memory bits : 1,664 / 55,562,240 ( < 1 % )
+Total RAM Blocks : 1 / 2,713 ( < 1 % )
+Total DSP Blocks : 2 / 1,518 ( < 1 % )
+Total HSSI RX channels : 0 / 48 ( 0 % )
+Total HSSI TX channels : 0 / 48 ( 0 % )
+Total PLLs : 0 / 112 ( 0 % )
