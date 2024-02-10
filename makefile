@@ -10,7 +10,10 @@ clean:
 setup_server:
 	cp utils/.aliases ../../
 	cp utils/.bashrc ../../
-	source ~/.bashrc 
+	cp utils/l_vitis.sh ../../
+	cp utils/l_vivado.sh ../../
+	source ~/.bashrc
+
 
 
 
