@@ -2,5 +2,7 @@ alias ld_quartus='module load bittware/quartus-pro-23.4'
 alias ld_questa='module load bittware/questa-23.4'
 alias export='export LM_LICENSE_FILE="27002@en4228283l.cidse.dhcp.asu.edu"'
 alias questa='/packages/apps/fpga/Quartus_Pro/23.4/questa_fe/bin/vsim'
+alias vitis_hls='source l_vitis.sh'
+alias vivado='source l_vivado.sh'
 
 
