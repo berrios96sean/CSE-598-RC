@@ -4,10 +4,10 @@
 #include <cmath>
 using namespace std;
 
-#define IN_A_ROWS 4
-#define IN_A_COLS 4
-#define IN_B_ROWS 4
-#define IN_B_COLS 4
+#define IN_A_ROWS 16
+#define IN_A_COLS 16
+#define IN_B_ROWS 16
+#define IN_B_COLS 16
 
 typedef float mat_a;
 typedef float mat_b;
