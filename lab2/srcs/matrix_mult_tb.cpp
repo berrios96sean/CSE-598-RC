@@ -17,10 +17,18 @@ void print_matrix(mat_prod matrix[IN_A_ROWS][IN_B_COLS])
     }
 }
 
-void convert_matrix(const boost::numeric::ublas::matrix<double>& input_matrix, mat_a output_array[IN_A_ROWS][IN_A_COLS]) {
+void convert_matrix_in(const boost::numeric::ublas::matrix<double>& input_matrix, mat_a output_array[IN_A_ROWS][IN_A_COLS]) {
     for (int i = 0; i < std::min(IN_A_ROWS, (int)input_matrix.size1()); ++i) {
         for (int j = 0; j < std::min(IN_A_COLS, (int)input_matrix.size2()); ++j) {
             output_array[i][j] = static_cast<mat_a>(input_matrix(i, j));
+        }
+    }
+}
+
+void convert_matrix_out(const boost::numeric::ublas::matrix<double>& input_matrix, mat_prod output_array[IN_A_ROWS][IN_A_COLS]) {
+    for (int i = 0; i < std::min(IN_A_ROWS, (int)input_matrix.size1()); ++i) {
+        for (int j = 0; j < std::min(IN_A_COLS, (int)input_matrix.size2()); ++j) {
+            output_array[i][j] = static_cast<mat_prod>(input_matrix(i, j));
         }
     }
 }
@@ -60,8 +68,8 @@ int main()
         }
     }
 
-    convert_matrix(rand_a,rand_a2);
-    convert_matrix(rand_b,rand_b2);
+    convert_matrix_in(rand_a,rand_a2);
+    convert_matrix_in(rand_b,rand_b2);
     // print_matrix(rand_a2);
     // print_matrix(rand_b2);
 
@@ -70,7 +78,7 @@ int main()
 
     boost::numeric::ublas::matrix<double> rand_prod_expected = boost::numeric::ublas::prod(rand_a,rand_b);
 
-    convert_matrix(rand_prod_expected,rand_prod2);
+    convert_matrix_out(rand_prod_expected,rand_prod2);
 
     // print_matrix(prod);
     // print_matrix(prod_expected);
