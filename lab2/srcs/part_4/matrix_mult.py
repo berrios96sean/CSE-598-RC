@@ -28,6 +28,11 @@ def generate_basic_matrices(rows, cols):
     b = np.ones((rows, cols), dtype=np.int32)
     return a, b 
 
+def generate_basic_matrices_value(rows, cols, value):
+    a = np.full((rows, cols), value, dtype=np.int32)
+    b = np.full((rows, cols), value, dtype=np.int32)
+    return a, b 
+
 def print_matrix(matrix):
     for row in matrix:
         print(" ".join(map(str, row)))
