@@ -20,8 +20,8 @@ circuit_list_add=spla.blif
 
 # Add architectures to list to sweep
 arch_list_add=k6_N10_40nm_1.xml
-#arch_list_add=k6_N10_40nm_4.xml
-#arch_list_add=k6_N10_40nm_16.xml
+arch_list_add=k6_N10_40nm_4.xml
+arch_list_add=k6_N10_40nm_16.xml
 
 # Parse info and how to parse
 parse_file=vpr_standard.txt
