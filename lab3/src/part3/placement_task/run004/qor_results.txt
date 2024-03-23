@@ -1,0 +1,25 @@
+arch	circuit	script_params	vpr_status	total_wirelength	total_runtime	num_clb	min_chan_width	crit_path_delay	
+k6_frac_N10_mem32K_40nm.xml	alu4.blif	common	success	-1	0.86	107	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	alu4.blif	common	exited with return code 1	-1	0.04	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	alu4.blif	common	success	7907	3.38	107	36	-1	
+k6_frac_N10_mem32K_40nm.xml	alu4.blif	common	success	7207	3.68	107	34	-1	
+k6_frac_N10_mem32K_40nm.xml	alu4.blif	common	success	7113	3.88	107	38	-1	
+k6_frac_N10_mem32K_40nm.xml	alu4.blif	common	success	7113	3.85	107	38	-1	
+k6_frac_N10_mem32K_40nm.xml	diffeq1.blif	common	success	-1	0.48	36	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	diffeq1.blif	common	exited with return code 1	-1	0.04	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	diffeq1.blif	common	success	12049	6.97	36	52	-1	
+k6_frac_N10_mem32K_40nm.xml	diffeq1.blif	common	success	12415	6.92	36	54	-1	
+k6_frac_N10_mem32K_40nm.xml	diffeq1.blif	common	success	12550	8.79	36	56	-1	
+k6_frac_N10_mem32K_40nm.xml	diffeq1.blif	common	success	12550	8.71	36	56	-1	
+k6_frac_N10_mem32K_40nm.xml	ex4p.blif	common	success	-1	0.28	24	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	ex4p.blif	common	exited with return code 1	-1	0.03	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	ex4p.blif	common	success	1454	0.86	24	38	-1	
+k6_frac_N10_mem32K_40nm.xml	ex4p.blif	common	success	1296	1.03	24	42	-1	
+k6_frac_N10_mem32K_40nm.xml	ex4p.blif	common	success	1340	1.08	24	40	-1	
+k6_frac_N10_mem32K_40nm.xml	ex4p.blif	common	success	1340	1.06	24	40	-1	
+k6_frac_N10_mem32K_40nm.xml	sha.blif	common	success	-1	1.30	149	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	sha.blif	common	exited with return code 1	-1	0.07	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	sha.blif	common	success	16560	6.57	149	46	-1	
+k6_frac_N10_mem32K_40nm.xml	sha.blif	common	success	17250	7.23	149	48	-1	
+k6_frac_N10_mem32K_40nm.xml	sha.blif	common	success	16487	8.42	149	48	-1	
+k6_frac_N10_mem32K_40nm.xml	sha.blif	common	success	16487	8.38	149	48	-1	

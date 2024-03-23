@@ -1,0 +1,5 @@
+vpr_status=exited with return code 1
+vpr_seconds=0
+rundir=/home/sfberrio/repos/lab1/lab3/src/part3
+hostname=c010.sol.rc.asu.edu
+error=

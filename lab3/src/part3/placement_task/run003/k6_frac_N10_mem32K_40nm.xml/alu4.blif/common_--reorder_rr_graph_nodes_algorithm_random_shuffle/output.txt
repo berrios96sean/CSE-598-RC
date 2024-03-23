@@ -1,0 +1,5 @@
+vpr_status=success
+vpr_seconds=4
+rundir=/home/sfberrio/repos/lab1/lab3/src/part3
+hostname=c010.sol.rc.asu.edu
+error=

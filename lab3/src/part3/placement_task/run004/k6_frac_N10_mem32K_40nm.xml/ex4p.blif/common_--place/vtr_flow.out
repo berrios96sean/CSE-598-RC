@@ -1,0 +1,5 @@
+k6_frac_N10_mem32K_40nm/ex4p		Error: Executable vpr failed
+	full command:  /usr/bin/env time -v /packages/apps/vtr/8.0.0-git/vpr/vpr k6_frac_N10_mem32K_40nm.xml ex4p --circuit_file ex4p.pre-vpr.blif --place
+	returncode  :  1
+	log file    :  /home/sfberrio/repos/lab1/lab3/src/part3/placement_task/run004/k6_frac_N10_mem32K_40nm.xml/ex4p.blif/common_--place/vpr.out
+failed: Executable vpr failed (took 0.07 seconds, overall memory peak 24.49 MiB consumed by vpr run)

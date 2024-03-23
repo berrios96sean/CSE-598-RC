@@ -1,0 +1,9 @@
+arch	circuit	script_params	vpr_status	total_wirelength	total_runtime	num_clb	min_chan_width	crit_path_delay	
+k6_frac_N10_mem32K_40nm.xml	alu4.blif	common	-1	-1	-1	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	alu4.blif	common	-1	-1	-1	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	diffeq1.blif	common	-1	-1	-1	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	diffeq1.blif	common	-1	-1	-1	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	ex4p.blif	common	-1	-1	-1	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	ex4p.blif	common	-1	-1	-1	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	sha.blif	common	-1	-1	-1	-1	-1	-1	
+k6_frac_N10_mem32K_40nm.xml	sha.blif	common	-1	-1	-1	-1	-1	-1	

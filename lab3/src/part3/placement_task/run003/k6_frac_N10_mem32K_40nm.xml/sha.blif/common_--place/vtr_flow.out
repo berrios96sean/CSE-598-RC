@@ -1,0 +1,5 @@
+k6_frac_N10_mem32K_40nm/sha		Error: Executable vpr failed
+	full command:  /usr/bin/env time -v /packages/apps/vtr/8.0.0-git/vpr/vpr k6_frac_N10_mem32K_40nm.xml sha --circuit_file sha.pre-vpr.blif --place
+	returncode  :  1
+	log file    :  /home/sfberrio/repos/lab1/lab3/src/part3/placement_task/run003/k6_frac_N10_mem32K_40nm.xml/sha.blif/common_--place/vpr.out
+failed: Executable vpr failed (took 0.11 seconds, overall memory peak 30.24 MiB consumed by vpr run)

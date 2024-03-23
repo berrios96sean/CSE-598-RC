@@ -1,0 +1,483 @@
+VPR FPGA Placement and Routing.
+Version: 8.1.0-dev+109c5adcc
+Revision: v8.0.0-9695-g109c5adcc
+Compiled: 2024-02-23T09:38:13
+Compiler: GNU 11.2.0 on Linux-4.18.0-348.el8.0.2.x86_64 x86_64
+Build Info: release IPO VTR_ASSERT_LEVEL=2
+
+University of Toronto
+verilogtorouting.org
+vtr-users@googlegroups.com
+This is free open source code under MIT license.
+
+VPR was run with the following command-line:
+/packages/apps/vtr/8.0.0-git/vpr/vpr k6_frac_N10_mem32K_40nm.xml alu4 --circuit_file alu4.pre-vpr.blif --RL_agent_placement off --max_router_iterations 150 --route --route_chan_width 44
+
+
+Architecture file: k6_frac_N10_mem32K_40nm.xml
+Circuit name: alu4
+
+# Loading Architecture Description
+# Loading Architecture Description took 0.01 seconds (max_rss 15.5 MiB, delta_rss +2.7 MiB)
+
+Timing analysis: ON
+Circuit netlist file: alu4.net
+Circuit placement file: alu4.place
+Circuit routing file: alu4.route
+Circuit SDC file: alu4.sdc
+Vpr floorplanning constraints file: not specified
+
+Packer: ENABLED
+Placer: ENABLED
+Router: ENABLED
+Analysis: ENABLED
+
+VPR was run with the following options:
+
+NetlistOpts.abosrb_buffer_luts            : true
+NetlistOpts.sweep_dangling_primary_ios    : true
+NetlistOpts.sweep_dangling_nets           : true
+NetlistOpts.sweep_dangling_blocks         : true
+NetlistOpts.sweep_constant_primary_outputs: false
+NetlistOpts.netlist_verbosity             : 1
+NetlistOpts.const_gen_inference           : COMB_SEQ
+
+PackerOpts.allow_unrelated_clustering: auto
+PackerOpts.alpha_clustering: 0.750000
+PackerOpts.beta_clustering: 0.900000
+PackerOpts.cluster_seed_type: BLEND2
+PackerOpts.connection_driven: true
+PackerOpts.global_clocks: true
+PackerOpts.hill_climbing_flag: false
+PackerOpts.inter_cluster_net_delay: 1.000000
+PackerOpts.timing_driven: true
+PackerOpts.target_external_pin_util: auto
+
+PlacerOpts.place_freq: PLACE_ONCE
+PlacerOpts.place_algorithm: CRITICALITY_TIMING_PLACE
+PlacerOpts.pad_loc_type: FREE
+PlacerOpts.constraints_file: No constraints file given
+PlacerOpts.place_cost_exp: 1.000000
+PlacerOpts.place_chan_width: 44
+PlacerOpts.inner_loop_recompute_divider: 0
+PlacerOpts.recompute_crit_iter: 1
+PlacerOpts.timing_tradeoff: 0.500000
+PlacerOpts.td_place_exp_first: 1.000000
+PlacerOpts.td_place_exp_last: 8.000000
+PlacerOpts.delay_offset: 0.000000
+PlacerOpts.delay_ramp_delta_threshold: -1
+PlacerOpts.delay_ramp_slope: 0.000000
+PlacerOpts.tsu_rel_margin: 1.000000
+PlacerOpts.tsu_abs_margin: 0.000000
+PlacerOpts.post_place_timing_report_file: 
+PlacerOpts.allowed_tiles_for_delay_model: 
+PlacerOpts.delay_model_reducer: MIN
+PlacerOpts.delay_model_type: DELTA
+PlacerOpts.rlim_escape_fraction: 0.000000
+PlacerOpts.move_stats_file: 
+PlacerOpts.placement_saves_per_temperature: 0
+PlacerOpts.effort_scaling: CIRCUIT
+PlacerOpts.place_delta_delay_matrix_calculation_method: ASTAR_ROUTE
+PlaceOpts.seed: 1
+AnnealSched.type: AUTO_SCHED
+AnnealSched.inner_num: 0.500000
+
+RouterOpts.route_type: DETAILED
+RouterOpts.flat_routing: false
+RouterOpts.has_choking_spot: false
+RouterOpts.router_algorithm: TIMING_DRIVEN
+RouterOpts.base_cost_type: DELAY_NORMALIZED_LENGTH
+RouterOpts.fixed_channel_width: 44
+RouterOpts.check_route: FULL
+RouterOpts.acc_fac: 1.000000
+RouterOpts.bb_factor: 3
+RouterOpts.bend_cost: 0.000000
+RouterOpts.first_iter_pres_fac: 0.000000
+RouterOpts.initial_pres_fac: 0.500000
+RouterOpts.pres_fac_mult: 1.300000
+RouterOpts.max_router_iterations: 150
+RouterOpts.min_incremental_reroute_fanout: 16
+RouterOpts.do_check_rr_graph: true
+RouterOpts.verify_binary_search: false
+RouterOpts.min_channel_width_hint: 0
+RouterOpts.read_rr_edge_metadata: false
+RouterOpts.exit_after_first_routing_iteration: false
+RouterOpts.astar_fac: 1.200000
+RouterOpts.router_profiler_astar_fac: 1.200000
+RouterOpts.criticality_exp: 1.000000
+RouterOpts.max_criticality: 0.990000
+RouterOpts.init_wirelength_abort_threshold: 0.850000
+RouterOpts.save_routing_per_iteration: false
+RouterOpts.congested_routing_iteration_threshold_frac: 1.000000
+RouterOpts.high_fanout_threshold: 64
+RouterOpts.router_debug_net: -2
+RouterOpts.router_debug_sink_rr: -2
+RouterOpts.router_debug_iteration: -2
+RouterOpts.max_convergence_count: 1
+RouterOpts.reconvergence_cpd_threshold: 0.990000
+RouterOpts.update_lower_bound_delays: true
+RouterOpts.first_iteration_timing_report_file: 
+RouterOpts.incr_reroute_delay_ripup: AUTO
+RouterOpts.route_bb_update: DYNAMIC
+RouterOpts.lookahead_type: MAP
+RouterOpts.initial_timing: LOOKAHEAD
+RouterOpts.router_heap: BINARY_HEAP
+RouterOpts.routing_failure_predictor = SAFE
+RouterOpts.routing_budgets_algorithm = DISABLE
+
+AnalysisOpts.gen_post_synthesis_netlist: false
+AnalysisOpts.timing_report_npaths: 100
+AnalysisOpts.timing_report_skew: false
+AnalysisOpts.echo_dot_timing_graph_node: -1
+AnalysisOpts.timing_report_detail: NETLIST
+AnalysisOpts.post_synth_netlist_unconn_input_handling: UNCONNECTED
+AnalysisOpts.post_synth_netlist_unconn_output_handling: UNCONNECTED
+
+# Building complex block graph
+Warning 1: io[0].clock[0] unconnected pin in architecture.
+# Building complex block graph took 0.01 seconds (max_rss 22.2 MiB, delta_rss +6.7 MiB)
+Circuit file: alu4.pre-vpr.blif
+# Load circuit
+# Load circuit took 0.01 seconds (max_rss 24.5 MiB, delta_rss +2.3 MiB)
+# Clean circuit
+Absorbed 0 LUT buffers
+Inferred    0 additional primitive pins as constant generators since they have no combinationally connected inputs
+Inferred    0 additional primitive pins as constant generators due to constant inputs
+Swept input(s)      : 0
+Swept output(s)     : 0 (0 dangling, 0 constant)
+Swept net(s)        : 0
+Swept block(s)      : 0
+Constant Pins Marked: 0
+# Clean circuit took 0.00 seconds (max_rss 24.5 MiB, delta_rss +0.0 MiB)
+# Compress circuit
+# Compress circuit took 0.00 seconds (max_rss 24.5 MiB, delta_rss +0.0 MiB)
+# Verify circuit
+# Verify circuit took 0.00 seconds (max_rss 24.5 MiB, delta_rss +0.0 MiB)
+Circuit Statistics:
+  Blocks: 1195
+    .input :      14
+    .output:       8
+    6-LUT  :    1173
+  Nets  : 1187
+    Avg Fanout:     4.9
+    Max Fanout:   358.0
+    Min Fanout:     1.0
+  Netlist Clocks: 0
+# Build Timing Graph
+  Timing Graph Nodes: 7016
+  Timing Graph Edges: 11650
+  Timing Graph Levels: 14
+# Build Timing Graph took 0.01 seconds (max_rss 26.0 MiB, delta_rss +1.5 MiB)
+Netlist contains 0 clocks
+# Load Timing Constraints
+
+SDC file 'alu4.sdc' not found
+Setting default timing constraints:
+   * constrain all primay inputs and primary outputs on a virtual external clock 'virtual_io_clock'
+   * optimize virtual clock to run as fast as possible
+Timing constraints created 1 clocks
+  Constrained Clock 'virtual_io_clock' (Virtual Clock)
+
+# Load Timing Constraints took 0.00 seconds (max_rss 26.0 MiB, delta_rss +0.0 MiB)
+# Load packing
+Begin loading packed FPGA netlist file.
+Netlist generated from file 'alu4.net'.
+Detected 0 constant generators (to see names run with higher pack verbosity)
+Finished loading packed FPGA netlist file (took 0.109325 seconds).
+Warning 2: Treated 0 constant nets as global which will not be routed (to see net names increase packer verbosity).
+# Load packing took 0.12 seconds (max_rss 71.2 MiB, delta_rss +45.2 MiB)
+Warning 3: Netlist contains 0 global net to non-global architecture pin connections
+
+Pb types usage...
+  io             : 22
+   inpad         : 14
+   outpad        : 8
+  clb            : 107
+   fle           : 1030
+    lut5inter    : 539
+     ble5        : 682
+      lut5       : 682
+       lut       : 682
+    ble6         : 491
+     lut6        : 491
+      lut        : 491
+
+# Create Device
+## Build Device Grid
+FPGA sized to 14 x 14: 196 grid tiles (auto)
+
+Resource usage...
+	Netlist
+		22	blocks of type: io
+	Architecture
+		384	blocks of type: io
+	Netlist
+		107	blocks of type: clb
+	Architecture
+		108	blocks of type: clb
+	Netlist
+		0	blocks of type: mult_36
+	Architecture
+		3	blocks of type: mult_36
+	Netlist
+		0	blocks of type: memory
+	Architecture
+		4	blocks of type: memory
+
+Device Utilization: 0.56 (target 1.00)
+	Physical Tile io:
+	Block Utilization: 0.06 Logical Block: io
+	Physical Tile clb:
+	Block Utilization: 0.99 Logical Block: clb
+	Physical Tile mult_36:
+	Block Utilization: 0.00 Logical Block: mult_36
+	Physical Tile memory:
+	Block Utilization: 0.00 Logical Block: memory
+
+FPGA size limited by block type(s): clb
+
+## Build Device Grid took 0.00 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+## Build routing resource graph
+SOURCE->OPIN and IPIN->SINK edge count:8816
+OPIN->CHANX/CHANY edge count before creating direct connections: 13122
+OPIN->CHANX/CHANY edge count after creating direct connections: 13122
+CHAN->CHAN type edge count:61280
+## Build routing resource graph took 0.05 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+  RR Graph Nodes: 17708
+  RR Graph Edges: 83218
+# Create Device took 0.05 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+
+# Load Placement
+Reading alu4.place.
+
+Successfully read alu4.place.
+
+# Load Placement took 0.00 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+
+# Computing router lookahead map
+## Computing wire lookahead
+## Computing wire lookahead took 0.14 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+## Computing src/opin lookahead
+Warning 4: Found no sample locations for EMPTY
+Warning 5: Found no more sample locations for SOURCE in io
+Warning 6: Found no more sample locations for OPIN in io
+Warning 7: Found no more sample locations for SOURCE in clb
+Warning 8: Found no more sample locations for OPIN in clb
+Warning 9: Found no more sample locations for SOURCE in mult_36
+Warning 10: Found no more sample locations for OPIN in mult_36
+Warning 11: Found no more sample locations for SOURCE in memory
+Warning 12: Found no more sample locations for OPIN in memory
+## Computing src/opin lookahead took 0.00 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+# Computing router lookahead map took 0.14 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+# Routing
+RR graph channel widths unchanged, skipping RR graph rebuild
+## Initializing router criticalities
+Initial Net Connection Criticality Histogram:
+[        0:      0.1)   0 (  0.0%) |
+[      0.1:      0.2)   0 (  0.0%) |
+[      0.2:      0.3)   0 (  0.0%) |
+[      0.3:      0.4)  10 (  0.5%) |*
+[      0.4:      0.5)  49 (  2.5%) |****
+[      0.5:      0.6) 108 (  5.6%) |********
+[      0.6:      0.7) 430 ( 22.1%) |**********************************
+[      0.7:      0.8) 601 ( 30.9%) |***********************************************
+[      0.8:      0.9) 541 ( 27.8%) |******************************************
+[      0.9:        1) 206 ( 10.6%) |****************
+## Initializing router criticalities took 0.02 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+---- ------ ------- ---- ------- ------- ------- ----------------- --------------- -------- ---------- ---------- ---------- ---------- --------
+Iter   Time    pres  BBs    Heap  Re-Rtd  Re-Rtd Overused RR Nodes      Wirelength      CPD       sTNS       sWNS       hTNS       hWNS Est Succ
+      (sec)     fac Updt    push    Nets   Conns                                       (ns)       (ns)       (ns)       (ns)       (ns)     Iter
+---- ------ ------- ---- ------- ------- ------- ----------------- --------------- -------- ---------- ---------- ---------- ---------- --------
+   1    0.0     0.0    0   46979     553    1945     761 ( 4.297%)    5899 (43.0%)    5.022     -30.57     -5.022      0.000      0.000      N/A
+   2    0.0     0.5    5   38438     397    1633     468 ( 2.643%)    5951 (43.3%)    5.022     -30.41     -5.022      0.000      0.000      N/A
+   3    0.0     0.6    2   32746     286    1339     427 ( 2.411%)    5994 (43.7%)    5.022     -30.69     -5.022      0.000      0.000      N/A
+   4    0.0     0.8    1   31508     238    1255     381 ( 2.152%)    6057 (44.1%)    5.097     -30.64     -5.097      0.000      0.000      N/A
+   5    0.0     1.1    1   29554     197    1141     262 ( 1.480%)    6117 (44.6%)    5.024     -31.19     -5.024      0.000      0.000      N/A
+   6    0.0     1.4    1   24651     161     876     169 ( 0.954%)    6189 (45.1%)    5.024     -31.15     -5.024      0.000      0.000      N/A
+   7    0.0     1.9    1   26350     144     966     181 ( 1.022%)    6104 (44.5%)    5.100     -31.52     -5.100      0.000      0.000      N/A
+   8    0.0     2.4    1   20925     122     694     151 ( 0.853%)    6207 (45.2%)    5.097     -31.38     -5.097      0.000      0.000      N/A
+   9    0.0     3.1    0   23229     124     764     132 ( 0.745%)    6283 (45.8%)    5.100     -31.75     -5.100      0.000      0.000      N/A
+  10    0.0     4.1    0   17398      92     511      84 ( 0.474%)    6364 (46.4%)    5.100     -31.76     -5.100      0.000      0.000       42
+  11    0.0     5.3    1   12430      64     307      33 ( 0.186%)    6443 (46.9%)    5.100     -31.57     -5.100      0.000      0.000       37
+  12    0.0     6.9    0    8256      43     177      21 ( 0.119%)    6466 (47.1%)    5.100     -31.56     -5.100      0.000      0.000       24
+  13    0.0     9.0    0    7493      28     153       8 ( 0.045%)    6480 (47.2%)    5.100     -31.60     -5.100      0.000      0.000       19
+  14    0.0    11.6    1    6856      22     132       5 ( 0.028%)    6498 (47.3%)    5.100     -31.56     -5.100      0.000      0.000       18
+  15    0.0    15.1    0    6422      17     120       1 ( 0.006%)    6502 (47.4%)    5.100     -31.60     -5.100      0.000      0.000       17
+  16    0.0    19.7    0    6390      17     118       0 ( 0.000%)    6520 (47.5%)    5.100     -31.56     -5.100      0.000      0.000       16
+Restoring best routing
+Critical path: 5.09959 ns
+Successfully routed after 16 routing iterations.
+Final Net Connection Criticality Histogram:
+[        0:      0.1)   0 (  0.0%) |
+[      0.1:      0.2)   0 (  0.0%) |
+[      0.2:      0.3)   0 (  0.0%) |
+[      0.3:      0.4)   6 (  0.3%) |
+[      0.4:      0.5)  17 (  0.9%) |*
+[      0.5:      0.6) 103 (  5.3%) |*******
+[      0.6:      0.7) 246 ( 12.6%) |*****************
+[      0.7:      0.8) 693 ( 35.6%) |***********************************************
+[      0.8:      0.9) 676 ( 34.8%) |**********************************************
+[      0.9:        1) 204 ( 10.5%) |**************
+Router Stats: total_nets_routed: 2505 total_connections_routed: 12131 total_heap_pushes: 339625 total_heap_pops: 62761 
+# Routing took 0.12 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+
+Checking to ensure routing is legal...
+# Checking to ensure non-configurable edges are legal
+# Checking to ensure non-configurable edges are legal took 0.00 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+Completed routing consistency check successfully.
+
+Serial number (magic cookie) for the routing is: -353955315
+Circuit successfully routed with a channel width factor of 44.
+# Synchronize the packed netlist to routing optimization
+## Annotating rr_node with routed nets
+## Annotating rr_node with routed nets took 0.00 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+Found 2727 mismatches between routing and packing results.
+Fixed 1866 routing traces due to mismatch between routing and packing results.
+# Synchronize the packed netlist to routing optimization took 0.02 seconds (max_rss 71.2 MiB, delta_rss +0.0 MiB)
+Final Clustering Statistics: 
+----------   --------   ------------------------------------   --------------------------
+Block Type   # Blocks   Avg. # of input clocks and pins used   Avg. # of output pins used
+----------   --------   ------------------------------------   --------------------------
+     EMPTY          0                                      0                            0   
+        io         22                               0.363636                     0.636364   
+       clb        107                                18.1028                      5.03738   
+   mult_36          0                                      0                            0   
+    memory          0                                      0                            0   
+Absorbed logical nets 634 out of 1187 nets, 553 nets not absorbed.
+
+
+Average number of bends per net: 1.12116  Maximum # of bends: 18
+
+Number of global nets: 0
+Number of routed nets (nonglobal): 553
+Wire length results (in units of 1 clb segments)...
+	Total wirelength: 6520, average net length: 11.7902
+	Maximum net length: 202
+
+Wire length results in terms of physical segments...
+	Total wiring segments used: 1824, average wire segments per net: 3.29837
+	Maximum segments used by a net: 57
+	Total local nets with reserved CLB opins: 0
+Total number of nets absorbed: 0
+
+Routing channel utilization histogram:
+[        1:      inf)  0 (  0.0%) |
+[      0.9:        1)  0 (  0.0%) |
+[      0.8:      0.9)  0 (  0.0%) |
+[      0.7:      0.8) 78 ( 23.1%) |************************************************
+[      0.5:      0.6) 60 ( 17.8%) |*************************************
+[      0.4:      0.5) 74 ( 21.9%) |**********************************************
+[      0.3:      0.4) 46 ( 13.6%) |****************************
+[      0.2:      0.3) 36 ( 10.7%) |**********************
+[      0.1:      0.2) 16 (  4.7%) |**********
+[        0:      0.1) 28 (  8.3%) |*****************
+Maximum routing channel utilization:      0.77 at (5,3)
+
+X - Directed channels:   j max occ ave occ capacity
+                      ---- ------- ------- --------
+                         0      28  17.571       44
+                         1      33  20.357       44
+                         2      31  19.071       44
+                         3      34  21.071       44
+                         4      32  19.786       44
+                         5      28  18.571       44
+                         6      34  21.429       44
+                         7      29  18.286       44
+                         8      32  19.500       44
+                         9      25  16.214       44
+                        10      29  17.929       44
+                        11      26  15.571       44
+                        12      16   7.643       44
+Y - Directed channels:   i max occ ave occ capacity
+                      ---- ------- ------- --------
+                         0      23  14.286       44
+                         1      27  16.286       44
+                         2      24  15.571       44
+                         3      32  21.643       44
+                         4      37  25.214       44
+                         5      33  18.500       44
+                         6      28  18.857       44
+                         7      33  22.286       44
+                         8      32  22.286       44
+                         9      23  17.000       44
+                        10      25  14.571       44
+                        11      21  14.714       44
+                        12      20  11.500       44
+
+Total tracks in x-direction: 572, in y-direction: 572
+
+Logic area (in minimum width transistor areas, excludes I/Os and empty grid tiles)...
+	Total logic block area (Warning, need to add pitch of routing to blocks with height > 3): 9.20055e+06
+	Total used logic block area: 5.76666e+06
+
+Routing area (in minimum width transistor areas)...
+	Total routing area: 527839., per logic tile: 2693.05
+
+Total Number of Wiring Segments by Direction: direction length number
+                                              --------- ------ -------
+                                                      X      4   2144
+                                                      Y      4   2144
+
+X - Directed Wiring Segment usage by length: length utilization
+                                             ------ -----------
+                                             4        0.42
+
+Y - Directed Wiring Segment usage by length: length utilization
+                                             ------ -----------
+                                             4       0.431
+
+Segment occupancy by length: Length utilization
+                             ------ -----------
+                             L4           0.425
+
+Segment occupancy by type:              name type utilization
+                           ----------------- ---- -----------
+                           unnamed_segment_0    0       0.425
+
+Final hold Worst Negative Slack (hWNS): 0 ns
+Final hold Total Negative Slack (hTNS): 0 ns
+
+Final hold slack histogram:
+[    1e-09:  1.2e-09) 1 ( 12.5%) |*************************
+[  1.2e-09:  1.3e-09) 0 (  0.0%) |
+[  1.3e-09:  1.4e-09) 1 ( 12.5%) |*************************
+[  1.4e-09:  1.5e-09) 1 ( 12.5%) |*************************
+[  1.5e-09:  1.6e-09) 0 (  0.0%) |
+[  1.6e-09:  1.7e-09) 2 ( 25.0%) |*************************************************
+[  1.7e-09:  1.8e-09) 1 ( 12.5%) |*************************
+[  1.8e-09:  1.9e-09) 0 (  0.0%) |
+[  1.9e-09:    2e-09) 1 ( 12.5%) |*************************
+[    2e-09:  2.1e-09) 1 ( 12.5%) |*************************
+
+Final critical path delay (least slack): 5.09959 ns, Fmax: 196.094 MHz
+Final setup Worst Negative Slack (sWNS): -5.09959 ns
+Final setup Total Negative Slack (sTNS): -31.5609 ns
+
+Final setup slack histogram:
+[ -5.1e-09: -4.8e-09) 1 ( 12.5%) |*************************
+[ -4.8e-09: -4.5e-09) 2 ( 25.0%) |*************************************************
+[ -4.5e-09: -4.2e-09) 0 (  0.0%) |
+[ -4.2e-09: -3.9e-09) 2 ( 25.0%) |*************************************************
+[ -3.9e-09: -3.6e-09) 1 ( 12.5%) |*************************
+[ -3.6e-09: -3.3e-09) 0 (  0.0%) |
+[ -3.3e-09:   -3e-09) 1 ( 12.5%) |*************************
+[   -3e-09: -2.7e-09) 0 (  0.0%) |
+[ -2.7e-09: -2.4e-09) 0 (  0.0%) |
+[ -2.4e-09: -2.1e-09) 1 ( 12.5%) |*************************
+
+Final geomean non-virtual intra-domain period: nan ns (nan MHz)
+Final fanout-weighted geomean non-virtual intra-domain period: nan ns (nan MHz)
+
+Incr Slack updates 1 in 5.7669e-05 sec
+Full Max Req/Worst Slack updates 1 in 1.443e-06 sec
+Incr Max Req/Worst Slack updates 0 in 0 sec
+Incr Criticality updates 0 in 0 sec
+Full Criticality updates 1 in 0.000121088 sec
+Flow timing analysis took 0.0772149 seconds (0.0713087 STA, 0.00590624 slack) (18 full updates: 0 setup, 0 hold, 18 combined).
+VPR succeeded
+The entire flow of VPR took 0.63 seconds (max_rss 71.2 MiB)
+Incr Slack updates 17 in 0.00125475 sec
+Full Max Req/Worst Slack updates 3 in 4.188e-06 sec
+Incr Max Req/Worst Slack updates 14 in 1.3997e-05 sec
+Incr Criticality updates 10 in 0.00107463 sec
+Full Criticality updates 7 in 0.000818757 sec
