@@ -1,0 +1,392 @@
+/usr/bin/env time -v /packages/apps/vtr/8.0.0-git/vpr/vpr k6_frac_N10_mem32K_40nm.xml diffeq1 --circuit_file diffeq1.pre-vpr.blif --pack --place --place_algorithm bounding_box --RL_agent_placement off --seed 15 --init_t 0.25
+VPR FPGA Placement and Routing.
+Version: 8.1.0-dev+109c5adcc
+Revision: v8.0.0-9695-g109c5adcc
+Compiled: 2024-02-23T09:38:13
+Compiler: GNU 11.2.0 on Linux-4.18.0-348.el8.0.2.x86_64 x86_64
+Build Info: release IPO VTR_ASSERT_LEVEL=2
+
+University of Toronto
+verilogtorouting.org
+vtr-users@googlegroups.com
+This is free open source code under MIT license.
+
+VPR was run with the following command-line:
+/packages/apps/vtr/8.0.0-git/vpr/vpr k6_frac_N10_mem32K_40nm.xml diffeq1 --circuit_file diffeq1.pre-vpr.blif --pack --place --place_algorithm bounding_box --RL_agent_placement off --seed 15 --init_t 0.25
+
+
+Architecture file: k6_frac_N10_mem32K_40nm.xml
+Circuit name: diffeq1
+
+# Loading Architecture Description
+# Loading Architecture Description took 0.01 seconds (max_rss 15.5 MiB, delta_rss +2.7 MiB)
+
+Timing analysis: ON
+Circuit netlist file: diffeq1.net
+Circuit placement file: diffeq1.place
+Circuit routing file: diffeq1.route
+Circuit SDC file: diffeq1.sdc
+Vpr floorplanning constraints file: not specified
+
+Packer: ENABLED
+Placer: ENABLED
+Router: DISABLED
+Analysis: DISABLED
+
+VPR was run with the following options:
+
+NetlistOpts.abosrb_buffer_luts            : true
+NetlistOpts.sweep_dangling_primary_ios    : true
+NetlistOpts.sweep_dangling_nets           : true
+NetlistOpts.sweep_dangling_blocks         : true
+NetlistOpts.sweep_constant_primary_outputs: false
+NetlistOpts.netlist_verbosity             : 1
+NetlistOpts.const_gen_inference           : COMB_SEQ
+
+PackerOpts.allow_unrelated_clustering: auto
+PackerOpts.alpha_clustering: 0.750000
+PackerOpts.beta_clustering: 0.900000
+PackerOpts.cluster_seed_type: BLEND2
+PackerOpts.connection_driven: true
+PackerOpts.global_clocks: true
+PackerOpts.hill_climbing_flag: false
+PackerOpts.inter_cluster_net_delay: 1.000000
+PackerOpts.timing_driven: true
+PackerOpts.target_external_pin_util: auto
+
+PlacerOpts.place_freq: PLACE_ONCE
+PlacerOpts.place_algorithm: BOUNDING_BOX_PLACE
+PlacerOpts.pad_loc_type: FREE
+PlacerOpts.constraints_file: No constraints file given
+PlacerOpts.place_cost_exp: 1.000000
+PlacerOpts.place_chan_width: 100
+PlacerOpts.rlim_escape_fraction: 0.000000
+PlacerOpts.move_stats_file: 
+PlacerOpts.placement_saves_per_temperature: 0
+PlacerOpts.effort_scaling: CIRCUIT
+PlacerOpts.place_delta_delay_matrix_calculation_method: ASTAR_ROUTE
+PlaceOpts.seed: 15
+AnnealSched.type: USER_SCHED
+AnnealSched.inner_num: 0.500000
+AnnealSched.init_t: 0.250000
+AnnealSched.alpha_t: 0.800000
+AnnealSched.exit_t: 0.010000
+
+# Building complex block graph
+Warning 1: io[0].clock[0] unconnected pin in architecture.
+# Building complex block graph took 0.01 seconds (max_rss 22.2 MiB, delta_rss +6.7 MiB)
+Circuit file: diffeq1.pre-vpr.blif
+# Load circuit
+Found constant-zero generator 'unconn'
+Found constant-one generator 'vcc'
+# Load circuit took 0.01 seconds (max_rss 24.0 MiB, delta_rss +1.8 MiB)
+# Clean circuit
+Absorbed 0 LUT buffers
+Inferred    0 additional primitive pins as constant generators since they have no combinationally connected inputs
+Inferred    0 additional primitive pins as constant generators due to constant inputs
+Inferred    0 additional primitive pins as constant generators since they have no combinationally connected inputs
+Inferred    0 additional primitive pins as constant generators due to constant inputs
+Swept input(s)      : 0
+Swept output(s)     : 0 (0 dangling, 0 constant)
+Swept net(s)        : 200
+Swept block(s)      : 0
+Constant Pins Marked: 0
+# Clean circuit took 0.00 seconds (max_rss 24.0 MiB, delta_rss +0.0 MiB)
+# Compress circuit
+# Compress circuit took 0.00 seconds (max_rss 24.0 MiB, delta_rss +0.0 MiB)
+# Verify circuit
+# Verify circuit took 0.00 seconds (max_rss 24.0 MiB, delta_rss +0.0 MiB)
+Circuit Statistics:
+  Blocks: 935
+    .input  :     162
+    .latch  :     193
+    .output :      96
+    0-LUT   :       1
+    6-LUT   :     478
+    multiply:       5
+  Nets  : 994
+    Avg Fanout:     2.8
+    Max Fanout:   193.0
+    Min Fanout:     1.0
+  Netlist Clocks: 1
+# Build Timing Graph
+  Timing Graph Nodes: 3778
+  Timing Graph Edges: 13532
+  Timing Graph Levels: 40
+# Build Timing Graph took 0.01 seconds (max_rss 25.5 MiB, delta_rss +1.5 MiB)
+Netlist contains 1 clocks
+  Netlist Clock 'clk' Fanout: 193 pins (5.1%), 193 blocks (20.6%)
+# Load Timing Constraints
+
+SDC file 'diffeq1.sdc' not found
+Setting default timing constraints:
+   * constrain all primay inputs and primary outputs on netlist clock 'clk'
+   * optimize netlist clock to run as fast as possible
+Timing constraints created 1 clocks
+  Constrained Clock 'clk' Source: 'clk.inpad[0]'
+
+# Load Timing Constraints took 0.00 seconds (max_rss 25.5 MiB, delta_rss +0.0 MiB)
+# Packing
+Begin packing 'diffeq1.pre-vpr.blif'.
+
+After removing unused inputs...
+	total blocks: 935, total nets: 994, total inputs: 162, total outputs: 96
+Begin prepacking.
+0 attraction groups were created during prepacking.
+Finish prepacking.
+Using inter-cluster delay: 1.33777e-09
+Packing with pin utilization targets: io:1,1 clb:0.8,1 mult_36:1,1 memory:1,1
+Packing with high fanout thresholds: io:128 clb:32 mult_36:128 memory:128
+Starting Clustering - Clustering Progress: 
+-------------------   --------------------------   ---------
+Molecules processed   Number of clusters created   FPGA size
+-------------------   --------------------------   ---------
+    29/743       3%                            7    16 x 16    
+    58/743       7%                            9    16 x 16    
+    87/743      11%                           11    16 x 16    
+   116/743      15%                           14    16 x 16    
+   145/743      19%                           16    16 x 16    
+   174/743      23%                           18    16 x 16    
+   203/743      27%                           20    16 x 16    
+   232/743      31%                           22    16 x 16    
+   261/743      35%                           24    16 x 16    
+   290/743      39%                           26    16 x 16    
+   319/743      42%                           28    16 x 16    
+   348/743      46%                           30    16 x 16    
+   377/743      50%                           32    16 x 16    
+   406/743      54%                           34    16 x 16    
+   435/743      58%                           36    16 x 16    
+   464/743      62%                           38    16 x 16    
+   493/743      66%                           48    16 x 16    
+   522/743      70%                           77    16 x 16    
+   551/743      74%                          106    16 x 16    
+   580/743      78%                          135    16 x 16    
+   609/743      81%                          164    16 x 16    
+   638/743      85%                          193    16 x 16    
+   667/743      89%                          222    16 x 16    
+   696/743      93%                          251    16 x 16    
+   725/743      97%                          280    16 x 16    
+
+Logic Element (fle) detailed count:
+  Total number of Logic Elements used : 337
+  LEs used for logic and registers    : 138
+  LEs used for logic only             : 199
+  LEs used for registers only         : 0
+
+Incr Slack updates 1 in 3.0918e-05 sec
+Full Max Req/Worst Slack updates 1 in 6.583e-06 sec
+Incr Max Req/Worst Slack updates 0 in 0 sec
+Incr Criticality updates 0 in 0 sec
+Full Criticality updates 1 in 5.4492e-05 sec
+FPGA sized to 16 x 16 (auto)
+Device Utilization: 0.34 (target 1.00)
+	Block Utilization: 0.58 Type: io
+	Block Utilization: 0.26 Type: clb
+	Block Utilization: 0.83 Type: mult_36
+
+Start the iterative improvement process
+the iterative improvement process is done
+Final Clustering Statistics: 
+----------   --------   ------------------------------------   --------------------------
+Block Type   # Blocks   Avg. # of input clocks and pins used   Avg. # of output pins used
+----------   --------   ------------------------------------   --------------------------
+     EMPTY          0                                      0                            0   
+        io        258                               0.372093                     0.627907   
+       clb         36                                22.7222                      10.3333   
+   mult_36          5                                     52                           32   
+    memory          0                                      0                            0   
+Absorbed logical nets 300 out of 994 nets, 694 nets not absorbed.
+
+Netlist conversion complete.
+
+# Packing took 0.19 seconds (max_rss 29.2 MiB, delta_rss +3.8 MiB)
+# Load packing
+Begin loading packed FPGA netlist file.
+Netlist generated from file 'diffeq1.net'.
+Detected 1 constant generators (to see names run with higher pack verbosity)
+Finished loading packed FPGA netlist file (took 0.055268 seconds).
+Warning 2: Treated 1 constant nets as global which will not be routed (to see net names increase packer verbosity).
+# Load packing took 0.06 seconds (max_rss 67.1 MiB, delta_rss +37.9 MiB)
+Warning 3: Netlist contains 5 global net to non-global architecture pin connections
+Warning 4: Logic block #40 (vcc) has only 1 output pin 'vcc.O[0]'. It may be a constant generator.
+Cluster level netlist and block usage statistics
+Netlist num_nets: 694
+Netlist num_blocks: 299
+Netlist EMPTY blocks: 0.
+Netlist io blocks: 258.
+Netlist clb blocks: 36.
+Netlist mult_36 blocks: 5.
+Netlist memory blocks: 0.
+Netlist inputs pins: 162
+Netlist output pins: 96
+
+Pb types usage...
+  io                    : 258
+   inpad                : 162
+   outpad               : 96
+  clb                   : 36
+   fle                  : 337
+    lut5inter           : 168
+     ble5               : 311
+      lut5              : 310
+       lut              : 310
+      ff                : 136
+    ble6                : 169
+     lut6               : 169
+      lut               : 169
+     ff                 : 57
+  mult_36               : 5
+   mult_36x36_slice     : 5
+    mult_36x36          : 5
+
+# Create Device
+## Build Device Grid
+FPGA sized to 16 x 16: 256 grid tiles (auto)
+
+Resource usage...
+	Netlist
+		258	blocks of type: io
+	Architecture
+		448	blocks of type: io
+	Netlist
+		36	blocks of type: clb
+	Architecture
+		140	blocks of type: clb
+	Netlist
+		5	blocks of type: mult_36
+	Architecture
+		6	blocks of type: mult_36
+	Netlist
+		0	blocks of type: memory
+	Architecture
+		4	blocks of type: memory
+
+Device Utilization: 0.34 (target 1.00)
+	Physical Tile io:
+	Block Utilization: 0.58 Logical Block: io
+	Physical Tile clb:
+	Block Utilization: 0.26 Logical Block: clb
+	Physical Tile mult_36:
+	Block Utilization: 0.83 Logical Block: mult_36
+	Physical Tile memory:
+	Block Utilization: 0.00 Logical Block: memory
+
+FPGA size limited by block type(s): mult_36
+
+## Build Device Grid took 0.00 seconds (max_rss 67.3 MiB, delta_rss +0.0 MiB)
+## Build routing resource graph
+SOURCE->OPIN and IPIN->SINK edge count:11392
+OPIN->CHANX/CHANY edge count before creating direct connections: 39360
+OPIN->CHANX/CHANY edge count after creating direct connections: 39360
+CHAN->CHAN type edge count:182653
+## Build routing resource graph took 0.14 seconds (max_rss 67.3 MiB, delta_rss +0.0 MiB)
+  RR Graph Nodes: 30072
+  RR Graph Edges: 233405
+# Create Device took 0.15 seconds (max_rss 67.3 MiB, delta_rss +0.0 MiB)
+
+
+Bounding box mode is Cube
+
+Using static probabilities for choosing each move type
+Probability of Uniform_move : 100.000000 
+Probability of Median_move : 0.000000 
+Probability of Centroid_move : 0.000000 
+# Placement
+## Initial Placement
+Initial placement iteration 0 has finished successfully
+## Initial Placement took 0.00 seconds (max_rss 67.3 MiB, delta_rss +0.0 MiB)
+
+BB estimate of min-dist (placement) wire length: 9196
+
+Completed placement consistency check successfully.
+Initial placement cost: 1 bb_cost: 91.9629 td_cost: nan
+Placement contains 0 placement macros involving 0 blocks (average macro size -nan)
+
+Moves per temperature: 999
+
+---- ------ ------- ------- ---------- ---------- ------- ---------- -------- ------- ------- ------ -------- --------- ------
+Tnum   Time       T Av Cost Av BB Cost Av TD Cost     CPD       sTNS     sWNS Ac Rate Std Dev  R lim Crit Exp Tot Moves  Alpha
+      (sec)                                          (ns)       (ns)     (ns)                                                 
+---- ------ ------- ------- ---------- ---------- ------- ---------- -------- ------- ------- ------ -------- --------- ------
+   1    0.0 2.5e-01   1.054      96.88 nan            nan        nan      nan   0.998  0.0329   15.0     0.00       999  0.200
+   2    0.0 2.0e-01   1.036      99.49 nan            nan        nan      nan   0.993  0.0300   15.0     0.00      1998  0.200
+   3    0.0 1.6e-01   0.952     102.87 nan            nan        nan      nan   0.999  0.0247   15.0     0.00      2997  0.200
+   4    0.0 1.3e-01   0.999      97.37 nan            nan        nan      nan   0.992  0.0372   15.0     0.00      3996  0.200
+   5    0.0 1.0e-01   1.036      99.68 nan            nan        nan      nan   0.996  0.0274   15.0     0.00      4995  0.200
+   6    0.0 8.2e-02   1.010      98.74 nan            nan        nan      nan   0.990  0.0282   15.0     0.00      5994  0.200
+   7    0.0 6.6e-02   0.951      97.75 nan            nan        nan      nan   0.984  0.0199   15.0     0.00      6993  0.200
+   8    0.0 5.2e-02   0.970      96.43 nan            nan        nan      nan   0.979  0.0210   15.0     0.00      7992  0.200
+   9    0.0 4.2e-02   1.014      97.07 nan            nan        nan      nan   0.983  0.0302   15.0     0.00      8991  0.200
+  10    0.0 3.4e-02   0.984      94.36 nan            nan        nan      nan   0.968  0.0305   15.0     0.00      9990  0.200
+  11    0.0 2.7e-02   1.008      93.41 nan            nan        nan      nan   0.970  0.0252   15.0     0.00     10989  0.200
+  12    0.0 2.1e-02   0.944      91.64 nan            nan        nan      nan   0.954  0.0246   15.0     0.00     11988  0.200
+  13    0.0 1.7e-02   0.973      91.51 nan            nan        nan      nan   0.941  0.0305   15.0     0.00     12987  0.200
+  14    0.0 1.4e-02   0.945      91.49 nan            nan        nan      nan   0.956  0.0237   15.0     0.00     13986  0.200
+  15    0.0 1.1e-02   0.976      88.24 nan            nan        nan      nan   0.926  0.0199   15.0     0.00     14985  0.200
+  16    0.0 0.0e+00   0.876      76.71 nan            nan        nan      nan   0.341  0.0569   15.0     0.00     15984  0.200
+## Placement Quench took 0.00 seconds (max_rss 67.3 MiB)
+
+BB estimate of min-dist (placement) wire length: 7002
+
+Completed placement consistency check successfully.
+
+Swaps called: 15984
+
+Aborted Move Reasons:
+  No moves aborted
+Placement cost: 0.800031, bb_cost: 70.0217, td_cost: nan, 
+
+Placement resource usage:
+  io      implemented as io     : 258
+  clb     implemented as clb    : 36
+  mult_36 implemented as mult_36: 5
+
+Placement number of temperatures: 16
+Placement total # of swap attempts: 15984
+	Swaps accepted: 14955 (93.6 %)
+	Swaps rejected:  1029 ( 6.4 %)
+	Swaps aborted:     0 ( 0.0 %)
+
+
+Placement perturbation distribution by block and move type: 
+------------------ ----------------- ---------------- ---------------- --------------- ------------ 
+    Block Type         Move Type       (%) of Total      Accepted(%)     Rejected(%)    Aborted(%)
+------------------ ----------------- ---------------- ---------------- --------------- ------------ 
+io                 Uniform                86.41            95.23           4.77           0.00         
+
+clb                Uniform                11.99            84.97           15.03          0.00         
+
+mult_36            Uniform                1.61             68.09           31.91          0.00         
+
+
+Placement Quench timing analysis took 0 seconds (0 STA, 0 slack) (0 full updates: 0 setup, 0 hold, 0 combined).
+Placement Total  timing analysis took 0 seconds (0 STA, 0 slack) (0 full updates: 0 setup, 0 hold, 0 combined).
+update_td_costs: connections 0 nets 0 sum_nets 0 total 0
+# Placement took 0.02 seconds (max_rss 67.3 MiB, delta_rss +0.0 MiB)
+
+Flow timing analysis took 0.00159668 seconds (0.00149665 STA, 0.000100028 slack) (1 full updates: 1 setup, 0 hold, 0 combined).
+VPR succeeded
+The entire flow of VPR took 0.50 seconds (max_rss 67.3 MiB)
+	Command being timed: "/packages/apps/vtr/8.0.0-git/vpr/vpr k6_frac_N10_mem32K_40nm.xml diffeq1 --circuit_file diffeq1.pre-vpr.blif --pack --place --place_algorithm bounding_box --RL_agent_placement off --seed 15 --init_t 0.25"
+	User time (seconds): 0.45
+	System time (seconds): 0.03
+	Percent of CPU this job got: 93%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.52
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 68888
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 36756
+	Voluntary context switches: 122
+	Involuntary context switches: 7
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 3296
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
