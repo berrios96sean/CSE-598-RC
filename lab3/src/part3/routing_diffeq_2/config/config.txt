@@ -1,0 +1,33 @@
+##############################################
+# Configuration file for running experiments
+##############################################
+
+# Path to directory of circuits to use
+circuits_dir=/home/sfberrio/repos/lab1/lab3/src/part3/benchmarks/
+
+# Path to directory of architectures to use
+archs_dir=/home/sfberrio/repos/lab1/lab3/src/part3/arch/
+
+# Add circuits to list to sweep
+#circuit_list_add=alu4.blif
+circuit_list_add=diffeq1.blif
+#circuit_list_add=ex4p.blif
+#circuit_list_add=sha.blif
+
+# Add architectures to list to sweep
+arch_list_add=k6_frac_N10_mem32K_40nm.xml
+
+# Parse info and how to parse
+parse_file=vpr_standard.txt
+
+# How to parse QoR info
+qor_parse_file=qor_standard.txt
+
+# Pass requirements
+pass_requirements_file=pass_requirements.txt
+
+# Script parameters
+script_params_common = -track_memory_usage -starting_stage vpr --route_chan_width 60 --max_criticality 0.5 --astar_fac 0  
+script_params_list_add = --RL_agent_placement off
+script_params_list_add = 
+script_params_list_add = --reorder_rr_graph_nodes_algorithm random_shuffle
