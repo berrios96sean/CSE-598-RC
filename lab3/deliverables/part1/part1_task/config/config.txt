@@ -3,10 +3,10 @@
 ##############################################
 
 # Path to directory of circuits to use
-circuits_dir=/home/sfberrio/repos/lab1/lab3/src/part1/benchmarks/
+circuits_dir=/packages/apps/vtr/8.0.0-git/vtr_flow/benchmarks/verilog
 
 # Path to directory of architectures to use
-archs_dir=/home/sfberrio/repos/lab1/lab3/src/part1/arch/
+archs_dir=/scratch/stiruchi/lab3/part1
 
 # Add circuits to list to sweep
 circuit_list_add=blob_merge.v
@@ -38,6 +38,4 @@ qor_parse_file=qor_standard.txt
 pass_requirements_file=pass_requirements.txt
 
 # Script parameters
-script_params_common = -track_memory_usage -route_chan_width 300
-script_params_list_add = 
-script_params_list_add = --reorder_rr_graph_nodes_algorithm random_shuffle
+script_params= -track_memory_usage -route_chan_width 300
